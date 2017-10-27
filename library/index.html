@@ -16,15 +16,26 @@
         -moz-box-sizing: border-box;
         box-sizing: border-box;
       }
+	input {
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+}
       body {
-        margin: 5% calc(34.886363% - 103.636363px);
-        font-size: calc(1.590909vw + 10.90909px);
+        margin: 5% calc(38.125% - 228px);
+        font-size: calc(1.25vw + 24px);
         text-align:left;
         color: #272536;
         background-color: #f2f2ff;
         opacity: 1;
         font-family: 'Fira Mono', monospace;
       }
+@media only screen and (max-width: 640px) {
+	body {
+margin: 5% 2.5%;
+font-size: 5vw;
+}
+}
       .filterDiv {
         width: auto;
         text-align: left;
