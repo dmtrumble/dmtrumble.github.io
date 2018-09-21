@@ -67,46 +67,62 @@
     .auth {
       font-size: 45%;
       margin-bottom: .2em;
-	 opacity: .9;
+	     opacity: .9;
     }
     a:link, a:visited, a:hover, a:active {
       color: #1f1856;
-	 text-decoration: none;
+	    text-decoration: none;
     }
     .filterDiv:hover{
-      background-color: #e8ddd5;
+    background-color: #e8ddd5;
     }
     .filterbuttons {
-	text-align: left;
-	font-size: calc(.4375vw + 7.6px);
-	margin-bottom: 2em;
+    	text-align: left;
+    	font-size: 70%;
+    	margin-bottom: 2em;
     }
-    .button {
-	font-weight: 400;
-font-size: calc(.4375vw + 7.6px);
-  	font-family:'Fira Mono',monospace;
-  	border-width: 1px;
-	border-style: hidden;
-	border-radius: 2.5px;
-	background-color: #e2dede;
-	line-height: 1.5;
-	margin-bottom: .55em;
+    .button  {
+    	font-weight: 600;
+      font-size: 70%;
+      font-family:'Fira Mono',monospace;
+    	line-height: 1.5;
+    	margin-bottom: .55em;
+      border-style: hidden;
+      background-color: inherit;
+      outline:none;
     }
-
-.button:hover, .button:focus {
-  	background-color: #FF7B78;
- 	 outline: 0;
-}
+    .hashtag {
+      font-size: 40%;
+      font-weight: 500;
+      border-style: hidden;
+      background-color: inherit;
+      font-family:'Fira Mono',monospace;
+      outline:none;
+    }
+  .button:hover, .button:focus, .hashtag:hover, .hashtag:focus {
+      text-decoration: underline;
+  }
     header {
       font-family: 'Nunito', sans-serif;
       font-size: 50%;
       margin-bottom: 2em;
       margin-top: -1em;
-	text-align:center;
+	     text-align:center;
     }
     .headlnk {
       padding: 0 1em;
       text-decoration: none;
+    }
+    #Search {
+      width: 100%;
+      border-style: hidden;
+      font-size: 50%;
+      padding: .5em 2em .5em 1em;
+      font-family:'Nunito',monospace;
+      margin-bottom: 2em;
+      background-color: #fcf5ed;
+      border-radius: 2em;
+      outline: none;
     }
 </style>
 </head>
@@ -114,170 +130,201 @@ font-size: calc(.4375vw + 7.6px);
   <header>
     <span><a class='headlnk' href="index.html">books</a> | <a class='headlnk' href="periodicals.html">magazines</a></span>
   </header>
-
   <div class="filterbuttons">
-<div style='margin-bottom:.5em;'>
-  <input type="button" class="button" onclick="filterSelection('all')" name="category" checked value="All">
-
-<input type="button" class="button" onclick="filterSelection('Pattern-Book')" name="category" value="Pattern Book">
-<input type="button" class="button" onclick="filterSelection('Orders')" name="category" value="Orders">
-<input type="button" class="button" onclick="filterSelection('Measured-Drawings')" name="category" value="Measured Drawings">
-<input type="button" class="button" onclick="filterSelection('Monograph')" name="category" value="Monograph">
-<input type="button" class="button" onclick="filterSelection('Residential')" name="category" value="Residential">
-<input type="button" class="button" onclick="filterSelection('Ornament')" name="category" value="Ornament">
-</div>
-<div style='margin-bottom:.5em;'>
-<input type="button" class="button" onclick="filterSelection('Ancient-Greek')" name="category" value="Ancient Greek">
-<input type="button" class="button" onclick="filterSelection('Ancient-Roman')" name="category" value="Ancient Roman">
-<input type="button" class="button" onclick="filterSelection('Islamic')" name="category" value="Islamic">
-<input type="button" class="button" onclick="filterSelection('Romanesque')" name="category" value="Romanesque">
-<input type="button" class="button" onclick="filterSelection('Renaissance')" name="category" value="Renaissance">
-<input type="button" class="button" onclick="filterSelection('Baroque')" name="category" value="Baroque">
-<input type="button" class="button" onclick="filterSelection('Neoclassical')" name="category" value="Neoclassical">
-<input type="button" class="button" onclick="filterSelection('Victorian')" name="category" value="Victorian">
-<input type="button" class="button" onclick="filterSelection('Greek-Revival')" name="category" value="Greek Revival">
-<input type="button" class="button" onclick="filterSelection('Beaux-Arts')" name="category" value="Beaux Arts">
-<input type="button" class="button" onclick="filterSelection('Art-Nouveau')" name="category" value="Art Nouveau">
-<input type="button" class="button" onclick="filterSelection('Prarie-Style')" name="category" value="Prarie Style">
-</div>
-<div style='margin-bottom:.5em;'>
-<input type="button" class="button" onclick="filterSelection('Germany')" name="category" value="Germany">
-<input type="button" class="button" onclick="filterSelection('Greece')" name="category" value="Greece">
-<input type="button" class="button" onclick="filterSelection('Italy')" name="category" value="Italy">
-<input type="button" class="button" onclick="filterSelection('Paris')" name="category" value="Paris">
-<input type="button" class="button" onclick="filterSelection('Rome')" name="category" value="Rome">
-<input type="button" class="button" onclick="filterSelection('United-Kingdom')" name="category" value="United Kingdom">
-<input type="button" class="button" onclick="filterSelection('United-States')" name="category" value="United States">
-<input type="button" class="button" onclick="filterSelection('all')" name="category" checked value="All">
-
-</div>
+    <div style='margin-bottom:.5em;'>
+      <input type="button" class="button" onclick="filterSelection('Pattern-Book')" name="category" value="Pattern Book">
+      <input type="button" class="button" onclick="filterSelection('Orders')" name="category" value="Orders">
+      <input type="button" class="button" onclick="filterSelection('Measured-Drawings')" name="category" value="Measured Drawings">
+      <input type="button" class="button" onclick="filterSelection('Monograph')" name="category" value="Monograph">
+      <input type="button" class="button" onclick="filterSelection('Residential')" name="category" value="Residential">
+      <input type="button" class="button" onclick="filterSelection('Ornament')" name="category" value="Ornament">
+    </div>
+    <div style='margin-bottom:.5em;'>
+      <input type="button" class="button" onclick="filterSelection('Ancient-Greek')" name="category" value="Ancient Greek">
+      <input type="button" class="button" onclick="filterSelection('Ancient-Roman')" name="category" value="Ancient Roman">
+      <input type="button" class="button" onclick="filterSelection('Islamic')" name="category" value="Islamic">
+      <input type="button" class="button" onclick="filterSelection('Romanesque')" name="category" value="Romanesque">
+      <input type="button" class="button" onclick="filterSelection('Renaissance')" name="category" value="Renaissance">
+      <input type="button" class="button" onclick="filterSelection('Baroque')" name="category" value="Baroque">
+      <input type="button" class="button" onclick="filterSelection('Neoclassical')" name="category" value="Neoclassical">
+      <input type="button" class="button" onclick="filterSelection('Victorian')" name="category" value="Victorian">
+      <input type="button" class="button" onclick="filterSelection('Greek-Revival')" name="category" value="Greek Revival">
+      <input type="button" class="button" onclick="filterSelection('Beaux-Arts')" name="category" value="Beaux Arts">
+      <input type="button" class="button" onclick="filterSelection('Art-Nouveau')" name="category" value="Art Nouveau">
+      <input type="button" class="button" onclick="filterSelection('Prarie-Style')" name="category" value="Prarie Style">
+    </div>
+    <div style='margin-bottom:.5em;'>
+      <input type="button" class="button" onclick="filterSelection('Germany')" name="category" value="Germany">
+      <input type="button" class="button" onclick="filterSelection('Greece')" name="category" value="Greece">
+      <input type="button" class="button" onclick="filterSelection('Italy')" name="category" value="Italy">
+      <input type="button" class="button" onclick="filterSelection('Paris')" name="category" value="Paris">
+      <input type="button" class="button" onclick="filterSelection('Rome')" name="category" value="Rome">
+      <input type="button" class="button" onclick="filterSelection('United-Kingdom')" name="category" value="United Kingdom">
+      <input type="button" class="button" onclick="filterSelection('United-States')" name="category" value="United States">
+      <input type="button" class="button" onclick="filterSelection('all');" name="category" checked value="All">
+    </div>
 </div>
 <div class="container">
-
-  	<div class="filterDiv Monograph Neoclassical England"><div class="auth">Adam, Robert; Adam, James</div><div class="title">The works in architecture of Robert and James Adam, Esquires</div><a href="https://archive.org/stream/gri_33125009354982#page/n0/mode/thumb" target="_blank"><div class="vol">Volume 1</div></a>
-  			<a href="https://archive.org/stream/gri_33125008276905#page/n0/mode/thumb" target="_blank"><div class="vol">Volume 2</div></a></div>
-  <a href="https://archive.org/stream/RuinspalaceEmpe00Adam#page/n5/mode/thumb " target="_blank"><div class="filterDiv Measured-Drawings Ancient-Roman Rome"><div class="auth">Adam, Robert; Bartolozzi, Francesco</div><div class="title">Ruins of the palace of the Emperor Diocletian at Spalatro in Dalmatia</div></div></a>
-  <a href="https://archive.org/stream/coursdarchitectu00avil#page/n5/mode/thumb " target="_blank"><div class="filterDiv Orders Pattern-Book "><div class="auth">Aviler, Augustin-Charles d'</div><div class="title">Cours d'architecture : qui comprend Les ordres de Vignole</div></div></a>
-  <a href="http://digi.ub.uni-heidelberg.de/diglit/becker1798/0001&ui_lang=eng/thumbs " target="_blank"><div class="filterDiv Garden-Structures Neoclassical "><div class="auth">Becker, Wilhelm Gottlieb</div><div class="title">Neue Garten- und Landschafts-Gebäude</div></div></a>
-  <a href="https://archive.org/stream/americanbuilders00benj#page/n5/mode/thumb" target="_blank"><div class="filterDiv Pattern-Book Greek-Revival United-States"><div class="auth">Benjamin, Asher</div><div class="title">The American builder's companion: or, A system of architecture, particularly adapted to the present style of building</div></div></a>
-  <a href="https://archive.org/stream/architectorprac00benj#page/n5/mode/thumb " target="_blank"><div class="filterDiv Pattern-Book Greek-Revival United-States"><div class="auth">Benjamin, Asher</div><div class="title">The architect or, Practical house carpenter</div></div></a>
-  <a href="https://archive.org/stream/practiceofarchit00benj#page/n5/mode/thumb " target="_blank"><div class="filterDiv Pattern-Book Greek-Revival United-States"><div class="auth">Benjamin, Asher</div><div class="title">Practice of architecture: containing the five orders of architecture</div></div></a>
-  	<div class="filterDiv Monograph Renaissance Italy"><div class="auth">Bertotti Scamozzi, Ottavio; Palladio, Andrea</div><div class="title">Le fabbriche e i disegni di Andrea Palladio</div><a href="https://archive.org/stream/gri_33125010842074#page/n5/mode/thumb" target="_blank"><div class="vol">Volume 1</div></a>
-  		<a href="https://archive.org/stream/gri_33125010717243#page/n3/mode/thumb" target="_blank"><div class="vol">Volume 2</div></a>
-  		<a href="https://archive.org/stream/gri_33125010848451#page/n5/mode/thumb " target="_blank"><div class="vol">Volume 3</div></a>
-  		<a href="https://archive.org/stream/gri_33125010848519#page/n3/mode/thumb" target="_blank"><div class="vol">Volume 4</div></a>
-  			<a href="https://archive.org/stream/gri_33125011161524#page/n0/mode/thumb" target="_blank"><div class="vol">Volume 5</div></a></div>
-  <a href="https://archive.org/stream/improvedenlarged00bidd#page/n5/mode/thumb " target="_blank"><div class="filterDiv Pattern-Book Greek-Revival United-States"><div class="auth">Biddle, Owen; Haviland, John</div><div class="title">An improved and enlarged edition of Biddle's young carpenter's assistant</div></div></a>
-  <a href="https://archive.org/stream/EsquissesdeYcor00Bine#page/n5/mode/thumb " target="_blank"><div class="filterDiv Ornament Art-Nouveau "><div class="auth">Binet, René; Geffroy, Gustave</div><div class="title">Esquisses décoratives</div></div></a>
-  <a href="https://archive.org/stream/gri_33125012901837#page/n5/mode/thumb " target="_blank"><div class="filterDiv Residential Victorian United-Kingdom"><div class="auth">Blackie and Son</div><div class="title">Villa and cottage architecture: select examples of country and suburban residences recently erected</div></div></a>
-  <a href="http://www.e-rara.ch/zut/content/thumbview/2782946" target="_blank"><div class="filterDiv Monograph Baroque Rome"><div class="auth">Borromini, Francesco</div><div class="title">Opera del cav. Francesco Boromino</div></div></a>
-  <a href="http://bibliotheque-numerique.inha.fr/viewer/5378/?offset=#page=1&viewer=thumb " target="_blank"><div class="filterDiv Pattern-Book Islamic "><div class="auth">Bourgoin, Jules; Viollet-le-Duc, Eugène-Emmanuel</div><div class="title">Les Arts arabes, architecture: Menuiserie - Bronzes - Plafonds - Revêtements - Marbres - Pavements - Vitraux - etc</div></div></a>
-  <a href="https://archive.org/stream/studyoforders00browiala#page/n1/mode/thumb" target="_blank"><div class="filterDiv Orders  "><div class="auth">Brown, Frank Chouteau</div><div class="title">Study of the orders</div></div></a>
-  <a href="http://bibliotheque-numerique.inha.fr/viewer/16778/?offset=#page=1&viewer=thumb " target="_blank"><div class="filterDiv Residential Beaux-Arts Paris"><div class="auth">Calliat, Victor</div><div class="title">Parallèle des maisons de Paris construites depuis 1830 jusqu'à nos jours dessiné et publié</div></div></a>
-  	<div class="filterDiv  Neoclassical United-Kingdom"><div class="auth">Campbell, Colen</div><div class="title">Vitruvius britannicus, or, The British architect</div><a href="https://archive.org/stream/gri_33125008447647#page/n5/mode/thumb " target="_blank"><div class="vol">Volume 1</div></a>
-  		<a href="https://archive.org/stream/gri_33125008447589#page/n5/mode/thumb " target="_blank"><div class="vol">Volume 2</div></a>
-  			<a href="https://archive.org/stream/gri_33125008447522#page/n5/mode/thumb " target="_blank"><div class="vol">Volume 3</div></a></div>
-  <a href="https://archive.org/stream/gri_33125008699452#page/n5/mode/thumb " target="_blank"><div class="filterDiv Pattern-Book Neoclassical "><div class="auth">Chambers, William, Sir</div><div class="title">A treatise on the decorative part of civil architecture</div></div></a>
-  <a href="https://archive.org/stream/gri_33125011158744#page/n5/mode/thumb " target="_blank"><div class="filterDiv Measured-Drawings Ancient-Greek Greece"><div class="auth">Chandler, Richard; Revett, Nicholas</div><div class="title">Ionian antiqvities</div></div></a>
-  <a href="https://archive.org/stream/gentlemancabine00Chip#page/n5/mode/thumb " target="_blank"><div class="filterDiv Furniture Baroque "><div class="auth">Chippendale, Thomas</div><div class="title">The gentleman and cabinet-maker's director</div></div></a>
-  <a href="http://www.e-rara.ch/zut/content/thumbview/2733357" target="_blank"><div class="filterDiv Measured-Drawings Ancient-Roman Rome"><div class="auth">Cresy, Edward, Taylor, George Ledwell</div><div class="title">The architectural antiquities of Rome</div></div></a>
-  <a href="http://digi.ub.uni-heidelberg.de/diglit/daly1870bd1_2/0001&ui_lang=eng/thumbs" target="_blank"><div class="filterDiv Residential Beaux-Arts Paris"><div class="auth">Daly, César</div><div class="title">L' architecture privée au XIXe siècle: nouvelles maisons de Paris et de ses environs</div></div></a>
-  	<div class="filterDiv Pattern-Book Neoclassical "><div class="auth">Daly, César Dénis</div><div class="title">Motifs historiques d'architecture et de sculpture d'ornement, du commencement de la renaissance à la fin de Louis XVI</div><a href="https://archive.org/stream/motifshistorique01daly#page/n5/mode/thumb " target="_blank"><div class="vol">Volume 1</div></a>
-  		<a href="https://archive.org/stream/motifshistorique02daly#page/n5/mode/thumb " target="_blank"><div class="vol">Volume 2</div></a>
-  		<a href="http://objects.library.uu.nl/reader/index.php?obj=1874-45111&lan=en#page//11/19/21/111921947333289751192321707711046259049.jpg/mode/thumb" target="_blank"><div class="vol">Volume 1</div></a>
-  		<a href="http://rara.biblhertz.it/Dg536-3010-02" target="_blank"><div class="vol">Volume 2</div></a>
-  			<a href="http://rara.biblhertz.it/Dg536-3010-03" target="_blank"><div class="vol">Volume 3</div></a></div>
-  <a href="http://digi.ub.uni-heidelberg.de/diglit/desgodets1682/0001&ui_lang=eng /thumbs" target="_blank"><div class="filterDiv Measured-Drawings Ancient-Roman Rome"><div class="auth">Desgodets, Antoine Babuty</div><div class="title">Les Edifices Antiques De Rome: Dessinés Et Mesurés Très Exactement</div></div></a>
-  <a href="http://bibliotheque-numerique.inha.fr/viewer/7213/?offset=#page=1&viewer=thumb " target="_blank"><div class="filterDiv Pattern-Book Neoclassical Paris"><div class="auth">Dumont, Gabriel-Pierre-Martin</div><div class="title">Plans, relevés et projets architecturaux</div></div></a>
-  <a href="http://www.e-rara.ch/zut/content/thumbview/2742499" target="_blank"><div class="filterDiv   "><div class="auth">Durand, Jean-Nicolas-Louis</div><div class="title">Recueil et parallèle des édifices de tout genre, anciens et modernes</div></div></a>
-  <a href="http://bibliotheque-numerique.inha.fr/viewer/15952/?offset=#page=1&viewer=thumb " target="_blank"><div class="filterDiv Measured-Drawings Romanesque Italy"><div class="auth">Espouy, Hector d'; Daumet, Georges</div><div class="title">Fragments d'architecture du Moyen âge et de la Renaissance</div></div></a>
-  <a href="http://bibliotheque-numerique.inha.fr/viewer/15748/?offset=#page=1&viewer=thumb " target="_blank"><div class="filterDiv Residential Beaux-Arts Paris"><div class="auth">Gélis-Didot, Pierre; Lambert, Th.</div><div class="title">Hôtels et maisons de Paris</div></div></a>
-  <a href="http://www.e-rara.ch/zut/content/thumbview/1286929 " target="_blank"><div class="filterDiv Pattern-Book Neoclassical "><div class="auth">Gibbs, James</div><div class="title">Rules for Drawing the several Parts of Architecture</div></div></a>
-  <a href="https://archive.org/stream/bookofarchitectu0000gibb#page/n1/mode/thumb" target="_blank"><div class="filterDiv Pattern-Book Neoclassical "><div class="auth">Gibbs, James</div><div class="title">A book of architecture containing designs of buildings and ornaments</div></div></a>
-  <a href="https://archive.org/stream/architecturetosc00granuoft#page/n5/mode/thumb " target="_blank"><div class="filterDiv Residential Renaissance Italy"><div class="auth">Grandjean de Montigny, Auguste Henri Victor; Famin, Auguste Pierre Sainte Marie</div><div class="title">Architecture toscane; ou, Palais, maisons et autres édifices de la Toscane</div></div></a>
-  <a href="http://digi.ub.uni-heidelberg.de/diglit/hittorff1851bd2/0001&ui_lang=eng/thumbs " target="_blank"><div class="filterDiv Measured-Drawings Ancient-Greek Italy"><div class="auth">Hittorff, Jacques Ignace</div><div class="title">Restitution du temple d'Empédocle à Sélinonte, ou l'architecture polychrôme chez les Grecs</div></div></a>
-  <a href="https://archive.org/stream/designsInigoJon1Jone#page/n5/mode/thumb " target="_blank"><div class="filterDiv Monograph Renaissance England"><div class="auth">Jones, Inigo; Kent, William</div><div class="title">The designs of Inigo Jones: consisting of plans and elevations for publick and private buildings</div></div></a>
-  <a href="http://www.e-rara.ch/zut/content/thumbview/3404356 " target="_blank"><div class="filterDiv Pattern-Book Neoclassical "><div class="auth">Jones, Inigo; Ware Isaac</div><div class="title">A complete body of architecture: adorned with plans and elevations from original designs, in which are interspersed some designs of Inigo Jones</div></div></a>
-  <a href="http://digi.ub.uni-heidelberg.de/diglit/jones1856/0001&ui_lang=eng/thumbs " target="_blank"><div class="filterDiv Ornament  "><div class="auth">Jones, Owen</div><div class="title">Grammatik der Ornamente: illustrirt mit Mustern von den verschiedenen Stylarten der Ornamente in hundert und zwölf Tafeln</div></div></a>
-  <a href="https://archive.org/stream/ExamplesChinese00Jone#page/n5/mode/thumb " target="_blank"><div class="filterDiv Ornament Victorian "><div class="auth">Jones, Owen</div><div class="title">Examples of Chinese ornament: selected from objects in the South Kensington Museum and other collections</div></div></a>
-  <a href="https://archive.org/stream/citycountrybuild00lang#page/n0/mode/thumb" target="_blank"><div class="filterDiv Pattern-Book Neoclassical "><div class="auth">Langley, Batty</div><div class="title">The city and country builder's and workman's treasury of designs</div></div></a>
-  	<div class="filterDiv Measured-Drawings Renaissance Rome"><div class="auth">Letarouilly, Paul Marie</div><div class="title">Édifices de Rome moderne; ou, Recueil des palais, maisons, églises, couvents et autres monuments publics et particuliers les plus remarquables de la ville de Rome</div><a href="https://archive.org/stream/dificesderomem01leta#page/n5/mode/thumb" target="_blank"><div class="vol">Volume 1</div></a>
-  		<a href="https://archive.org/stream/dificesderomem02leta#page/n5/mode/thumb" target="_blank"><div class="vol">Volume 2</div></a>
-  			<a href="https://archive.org/stream/dificesderomem03leta#page/n5/mode/thumb" target="_blank"><div class="vol">Volume 3</div></a></div>
-  <a href="https://archive.org/stream/greekromanorders00maucuoft#page/n5/mode/thumb " target="_blank"><div class="filterDiv Orders  "><div class="auth">Mauch, Johann Matthäus von</div><div class="title">The Greek and Roman orders</div></div></a>
-  <a href="https://drive.google.com/drive/folders/0BzLhr39ZcGvcdWlGWDkzeUtGR0U?usp=sharing " target="_blank"><div class="filterDiv Monograph Beaux-Arts United-States"><div class="auth">McKim, Mead & White</div><div class="title">A monograph of the work of McKim, Mead & White, 1879-1915.</div></div></a>
-  <a href="https://archive.org/stream/selectarchitectu00morr#page/n5/mode/thumb " target="_blank"><div class="filterDiv Residential Neoclassical Survey"><div class="auth">Morris, Robert</div><div class="title">Select architecture: being regular designs of plans and elevations well suited to both town and country</div></div></a>
-  	<div class="filterDiv Pattern-Book Neoclassical "><div class="auth">Neufforge, Jean-François de</div><div class="title">Recueil élémentaire d'architecture</div><a href="http://bibliotheque-numerique.inha.fr/viewer/15725/?offset=#page=1&viewer=thumb " target="_blank"><div class="vol">Volumes 1-2</div></a>
-  		<a href="http://bibliotheque-numerique.inha.fr/viewer/15728/?offset=1#page=2&viewer=thumb" target="_blank"><div class="vol">Volumes 3-4</div></a>
-  		<a href="http://bibliotheque-numerique.inha.fr/viewer/15729/?offset=2#page=2&viewer=thumb" target="_blank"><div class="vol">Volumes 5-6</div></a>
-  		<a href="http://bibliotheque-numerique.inha.fr/viewer/15730/?offset=6#page=2&viewer=thumb" target="_blank"><div class="vol">Volumes 7-8</div></a>
-  		<a href="http://bibliotheque-numerique.inha.fr/viewer/15731/?offset=4#page=2&viewer=thumb" target="_blank"><div class="vol">Supplipment - Vol. 1</div></a>
-  			<a href="http://bibliotheque-numerique.inha.fr/viewer/15732/?offset=5#page=1&viewer=thumb" target="_blank"><div class="vol">Supplipment - Vol. 2</div></a></div>
-  <a href="http://gallica.bnf.fr/ark:/12148/bpt6k63798932/f1.planchecontact " target="_blank"><div class="filterDiv  Islamic "><div class="auth">Normand, Alfred-Nicolas</div><div class="title">L'architecture des nations étrangères: étude sur les principales constructions du parc à l'Exposition universelle de Paris</div></div></a>
-  <a href="https://archive.org/stream/practicalbuilder00pain_0#page/n1/mode/thumb" target="_blank"><div class="filterDiv Pattern-Book Neoclassical United-States"><div class="auth">Pain, William</div><div class="title">Practical builder, or, Workman's general assistant</div></div></a>
-  <a href="https://archive.org/stream/architecturePal00Pall#page/n5/mode/thumb " target="_blank"><div class="filterDiv Orders Renaissance "><div class="auth">Palladio, Andrea; Leoni, Giacomo</div><div class="title">The architecture of A. Palladio, in four books: containing, a short treatise of the five orders, and the most necessary observations concerning all sorts of building... to which are added several notes and observations made by Inigo Jones</div></div></a>
-  <a href="https://archive.org/stream/palaismaisonseta00perc#page/n5/mode/thumb " target="_blank"><div class="filterDiv Residential Beaux-Arts Rome"><div class="auth">Percier, Charles</div><div class="title">Palais, maisons, et autres édifices modernes, dessinés a Rome</div></div></a>
-  	<div class="filterDiv Pattern-Book Baroque Italy"><div class="auth">Ruggieri, Ferdinando</div><div class="title">Scelta di architetture antiche e moderne della città di Firenze</div><a href="https://archive.org/stream/gri_33125008652899#page/n5/mode/thumb" target="_blank"><div class="vol">Volumes 1-2</div></a>
-  			<a href="https://archive.org/stream/gri_33125008652956#page/n7/mode/thumb" target="_blank"><div class="vol">Volumes 3-4</div></a></div>
-  	<div class="filterDiv Ecclesiastical Romanesque United-Kingdom"><div class="auth">Ruprich-Robert, Victor</div><div class="title">L'Architecture normande aux XIème et XIIème siècles en Normandie et en Angleterre</div><a href="http://bibliotheque-numerique.inha.fr/viewer/15950/?offset=#page=1&viewer=thumb " target="_blank"><div class="vol">Volume 1</div></a>
-  			<a href="http://bibliotheque-numerique.inha.fr/viewer/15951/?offset=#page=1&viewer=thumb " target="_blank"><div class="vol">Volume 2</div></a></div>
-  <a href="https://archive.org/stream/darchitecturedev00scam#page/n5/mode/thumb " target="_blank"><div class="filterDiv Orders Renaissance Monograph"><div class="auth">Scamozzi, Vincenzo; Aviler, Augustin-Charles d'</div><div class="title">Oeuvres d'architecture de Vincent Scamozzi</div></div></a>
-  	<div class="filterDiv Monograph Neoclassical Germany"><div class="auth">Schinkel, Karl Friedrich</div><div class="title">Sammlung architektonischer Entwürfe: enthaltend theils Werke welche ausgeführt sind theils Gegenstände deren Ausführung beabsichtigt wurde</div><a href="http://digi.ub.uni-heidelberg.de/diglit/schinkel1858tafeln1/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 1</div></a>
-  		<a href="http://digi.ub.uni-heidelberg.de/diglit/schinkel1858tafeln2/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 2</div></a>
-  		<a href="http://digi.ub.uni-heidelberg.de/diglit/schinkel1858tafeln3/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 3</div></a>
-  			<a href="http://digi.ub.uni-heidelberg.de/diglit/schinkel1858tafeln4/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 4</div></a></div>
-  <a href="https://archive.org/stream/ldpd_12223091_000#page/n5/mode/thumb " target="_blank"><div class="filterDiv Pattern-Book Renaissance "><div class="auth">Serlio, Sebastiano</div><div class="title">Extraordinario libro di architettura di Sebastiano Serlio</div></div></a>
-  <a href="http://gallica.bnf.fr/ark:/12148/btv1b8528563k/f1.planchecontact " target="_blank"><div class="filterDiv Garden-Structures Neoclassical "><div class="auth">Soan, John</div><div class="title">Designs in architecture; consisting of plans, elevations and sections, for temples, baths, cassines, pavilions, garden-seats, obelisks, and other buildings</div></div></a>
-  <a href="http://digi.ub.uni-heidelberg.de/diglit/dilettanti1833/0001&ui_lang=eng/thumbs " target="_blank"><div class="filterDiv Measured-Drawings Ancient-Greek Greece"><div class="auth">Society of Dilettanti</div><div class="title">The unedited antiquities of Attica: comprising the architectural remains of Eleusis, Rhamnus, Sunium, and Thoricus</div></div></a>
-  <a href="http://bibliotheque-numerique.inha.fr/viewer/12763/?offset=#page=1&viewer=thumb" target="_blank"><div class="filterDiv Monograph Neoclassical Paris"><div class="auth">Soufflot, Jacques-Germain; Sellier, François Noël; Taraval, Louis Gustave; Poulleau, Claude René Gabriel; Dumont, François</div><div class="title">Oeuvres de Jacques-Germain Soufflot. Chevalier de l'Ordre du roi, architecte de Sa Majesté, Intendant général de ses Bâtimens...</div></div></a>
-  	<div class="filterDiv Measured-Drawings Ancient-Greek Greece"><div class="auth">Stuart, James; Revett, Nicholas</div><div class="title">The Antiquities of Athens, measured and delineated by James Stuart, F.R.S. and F.S.A. and Nicholas Revett, Painters and Architects</div><a href="http://bibliotheque-numerique.inha.fr/viewer/19156/?offset=1#page=1&viewer=thumb" target="_blank"><div class="vol">Volumes 1-2</div></a>
-  			<a href="http://bibliotheque-numerique.inha.fr/viewer/19167/?offset=2#page=5&viewer=thumb" target="_blank"><div class="vol">Volumes 3-4</div></a></div>
-  <a href="http://bibliotheque-numerique.inha.fr/viewer/19169/?offset=#page=1&viewer=thumb " target="_blank"><div class="filterDiv Measured-Drawings Ancient-Greek Greece"><div class="auth">Stuart, James; Revett, Nicholas</div><div class="title">Antiquities of Athens and other places of Greece, Sicily, etc.: Supplementary to the Antiquities of Athens</div></div></a>
-  <a href="http://digi.ub.uni-heidelberg.de/diglit/uhde1902/0001&ui_lang=eng/thumbs " target="_blank"><div class="filterDiv Orders  "><div class="auth">Uhde, Constantin</div><div class="title">Die Architekturformen des klassischen Alterthums mit besonderer Berücksichtigung der Säulenordnung und Gesimsbildung</div></div></a>
-  <a href="https://archive.org/stream/istruzionidivers02vitt#page/n5/mode/thumb " target="_blank"><div class="filterDiv Pattern-Book Baroque "><div class="auth">Vittone, Bernardo Antonio</div><div class="title">Istruzioni diverse concernenti l'officio dell'architetto civile</div></div></a>
-  <a href="https://archive.org/stream/designsofinigojo00ware#page/n5/mode/thumb " target="_blank"><div class="filterDiv Pattern-Book Neoclassical "><div class="auth">Ware, Isaac; Kent, William</div><div class="title">Designs of Inigo Jones and others</div></div></a>
-  <a href="http://digi.ub.uni-heidelberg.de/diglit/wood1757/0001&ui_lang=eng/thumbs " target="_blank"><div class="filterDiv Measured-Drawings Ancient-Roman Rome"><div class="auth">Wood, Robert</div><div class="title">The ruins of Balbec, otherwise Heliopolis in Coelosyria</div></div></a>
-  <a href="http://digi.ub.uni-heidelberg.de/diglit/wood1753b/0001&ui_lang=eng/thumbs " target="_blank"><div class="filterDiv Measured-Drawings Ancient-Roman Rome"><div class="auth">Wood, Robert </div><div class="title">Les Ruines De Palmyre, Autrement Dite Tedmor, Au Désert</div></div></a>
-  	<div class="filterDiv Residential Prarie-Style United-States"><div class="auth">Wright, Frank Lloyd</div><div class="title">Ausgeführte Bauten und Entwürfe von Frank Lloyd Wright</div><a href="https://collections.lib.utah.edu/details?id=204354 " target="_blank"><div class="vol">Volume 1</div></a>
-  			<a href="https://collections.lib.utah.edu/details?id=204376 " target="_blank"><div class="vol">Volume 2</div></a></div>
-  	<div class="filterDiv Ornament Ancient-Roman Italy"><div class="auth">Zahn, Wilhelm</div><div class="title">Die schönsten Ornamente und merkwürdigsten Gemälde aus Pompeji, Herculanum und Stabiae</div><a href="http://digi.ub.uni-heidelberg.de/diglit/zahn1828bd1/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 1</div></a>
-  		<a href="http://digi.ub.uni-heidelberg.de/diglit/zahn1842bd2/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 2</div></a>
-  			<a href="http://digi.ub.uni-heidelberg.de/diglit/zahn1852bd3/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 3</div></a></div>
-  <a href="https://archive.org/stream/gri_33125005903675#page/n0/mode/thumb" target="_blank"><div class="filterDiv Monograph Art-Nouveau Paris"><div class="auth">Guimard, Hector</div><div class="title">Le Castel Béranger: œuvre de Hector Guimard, architecte, professeur à l'Ecole nationale des arts décoratifs</div></div></a>
+  <input type="text" id="Search" onkeyup="myFunction()" placeholder="Search..." title="Type in a name">
+  <div class="filterDiv Monograph Neoclassical United-Kingdom">
+    <div class="auth">Adam, Robert; Adam, James</div>
+    <div class="title">The works in architecture of Robert and James Adam, Esquires</div>
+      <a href="https://archive.org/stream/gri_33125009354982#page/n0/mode/thumb" target="_blank"><div class="vol">Volume 1</div></a>
+			<a href="https://archive.org/stream/gri_33125008276905#page/n0/mode/thumb" target="_blank"><div class="vol">Volume 2</div></a>
+      <input type="button" class="hashtag" onclick="filterSelection('Monograph')" name="category" value="#Monograph">
+      <input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical">
+      <input type="button" class="hashtag" onclick="filterSelection('United-Kingdom')" name="category" value="#United-Kingdom">
+    </div>
+<div class="filterDiv Measured-Drawings Ancient-Roman Rome">
+  <a href="https://archive.org/stream/RuinspalaceEmpe00Adam#page/n5/mode/thumb " target="_blank">
+    <div class="auth">Adam, Robert; Bartolozzi, Francesco</div>
+    <div class="title">Ruins of the palace of the Emperor Diocletian at Spalatro in Dalmatia</div></a>
+    <input type="button" class="hashtag" onclick="filterSelection('Measured-Drawings')" name="category" value="#Measured-Drawings">
+    <input type="button" class="hashtag" onclick="filterSelection('Ancient-Roman')" name="category" value="#Ancient-Roman">
+    <input type="button" class="hashtag" onclick="filterSelection('Rome')" name="category" value="#Rome">
+  </div>
+<div class="filterDiv Orders Pattern-Book ">
+  <a href="https://archive.org/stream/coursdarchitectu00avil#page/n5/mode/thumb " target="_blank">
+    <div class="auth">Aviler, Augustin-Charles d'</div>
+    <div class="title">Cours d'architecture : qui comprend Les ordres de Vignole</div></a>
+  <input type="button" class="hashtag" onclick="filterSelection('Orders')" name="category" value="#Orders">
+  <input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book">
 </div>
-
+<div class="filterDiv Garden-Structures Neoclassical ">
+  <a href="http://digi.ub.uni-heidelberg.de/diglit/becker1798/0001&ui_lang=eng/thumbs " target="_blank">
+    <div class="auth">Becker, Wilhelm Gottlieb</div>
+    <div class="title">Neue Garten- und Landschafts-Gebäude</div></a>
+    <input type="button" class="hashtag" onclick="filterSelection('Garden-Structures')" name="category" value="#Garden-Structures"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"></div>
+<div class="filterDiv Pattern-Book Greek-Revival United-States"><a href="https://archive.org/stream/americanbuilders00benj#page/n5/mode/thumb" target="_blank"><div class="auth">Benjamin, Asher</div><div class="title">The American builder's companion: or, A system of architecture, particularly adapted to the present style of building</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Greek-Revival')" name="category" value="#Greek-Revival"><input type="button" class="hashtag" onclick="filterSelection('United-States')" name="category" value="#United-States"></div>
+<div class="filterDiv Pattern-Book Greek-Revival United-States"><a href="https://archive.org/stream/architectorprac00benj#page/n5/mode/thumb " target="_blank"><div class="auth">Benjamin, Asher</div><div class="title">The architect or, Practical house carpenter</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Greek-Revival')" name="category" value="#Greek-Revival"><input type="button" class="hashtag" onclick="filterSelection('United-States')" name="category" value="#United-States"></div>
+<div class="filterDiv Pattern-Book Greek-Revival United-States"><a href="https://archive.org/stream/practiceofarchit00benj#page/n5/mode/thumb " target="_blank"><div class="auth">Benjamin, Asher</div><div class="title">Practice of architecture: containing the five orders of architecture</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Greek-Revival')" name="category" value="#Greek-Revival"><input type="button" class="hashtag" onclick="filterSelection('United-States')" name="category" value="#United-States"></div>
+	<div class="filterDiv Monograph Renaissance Italy"><div class="auth">Bertotti Scamozzi, Ottavio; Palladio, Andrea</div><div class="title">Le fabbriche e i disegni di Andrea Palladio</div><a href="https://archive.org/stream/gri_33125010842074#page/n5/mode/thumb" target="_blank"><div class="vol">Volume 1</div></a>
+		<a href="https://archive.org/stream/gri_33125010717243#page/n3/mode/thumb" target="_blank"><div class="vol">Volume 2</div></a>
+		<a href="https://archive.org/stream/gri_33125010848451#page/n5/mode/thumb " target="_blank"><div class="vol">Volume 3</div></a>
+		<a href="https://archive.org/stream/gri_33125010848519#page/n3/mode/thumb" target="_blank"><div class="vol">Volume 4</div></a>
+			<a href="https://archive.org/stream/gri_33125011161524#page/n0/mode/thumb" target="_blank"><div class="vol">Volume 5</div></a><input type="button" class="hashtag" onclick="filterSelection('Monograph')" name="category" value="#Monograph"><input type="button" class="hashtag" onclick="filterSelection('Renaissance')" name="category" value="#Renaissance"><input type="button" class="hashtag" onclick="filterSelection('Italy')" name="category" value="#Italy"></div>
+<div class="filterDiv Pattern-Book Greek-Revival United-States"><a href="https://archive.org/stream/improvedenlarged00bidd#page/n5/mode/thumb " target="_blank"><div class="auth">Biddle, Owen; Haviland, John</div><div class="title">An improved and enlarged edition of Biddle's young carpenter's assistant</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Greek-Revival')" name="category" value="#Greek-Revival"><input type="button" class="hashtag" onclick="filterSelection('United-States')" name="category" value="#United-States"></div>
+<div class="filterDiv Ornament Art-Nouveau "><a href="https://archive.org/stream/EsquissesdeYcor00Bine#page/n5/mode/thumb " target="_blank"><div class="auth">Binet, René; Geffroy, Gustave</div><div class="title">Esquisses décoratives</div></a><input type="button" class="hashtag" onclick="filterSelection('Ornament')" name="category" value="#Ornament"><input type="button" class="hashtag" onclick="filterSelection('Art-Nouveau')" name="category" value="#Art-Nouveau"></div>
+<div class="filterDiv Residential Victorian United-Kingdom"><a href="https://archive.org/stream/gri_33125012901837#page/n5/mode/thumb " target="_blank"><div class="auth">Blackie and Son</div><div class="title">Villa and cottage architecture: select examples of country and suburban residences recently erected</div></a><input type="button" class="hashtag" onclick="filterSelection('Residential')" name="category" value="#Residential"><input type="button" class="hashtag" onclick="filterSelection('Victorian')" name="category" value="#Victorian"><input type="button" class="hashtag" onclick="filterSelection('United-Kingdom')" name="category" value="#United-Kingdom"></div>
+<div class="filterDiv Monograph Baroque Rome"><a href="http://www.e-rara.ch/zut/content/thumbview/2782946" target="_blank"><div class="auth">Borromini, Francesco</div><div class="title">Opera del cav. Francesco Boromino</div></a><input type="button" class="hashtag" onclick="filterSelection('Monograph')" name="category" value="#Monograph"><input type="button" class="hashtag" onclick="filterSelection('Baroque')" name="category" value="#Baroque"><input type="button" class="hashtag" onclick="filterSelection('Rome')" name="category" value="#Rome"></div>
+<div class="filterDiv Pattern-Book Islamic "><a href="http://bibliotheque-numerique.inha.fr/viewer/5378/?offset=#page=1&viewer=thumb " target="_blank"><div class="auth">Bourgoin, Jules; Viollet-le-Duc, Eugène-Emmanuel</div><div class="title">Les Arts arabes, architecture: Menuiserie - Bronzes - Plafonds - Revêtements - Marbres - Pavements - Vitraux - etc</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Islamic')" name="category" value="#Islamic"></div>
+<div class="filterDiv Orders  "><a href="https://archive.org/stream/studyoforders00browiala#page/n1/mode/thumb" target="_blank"><div class="auth">Brown, Frank Chouteau</div><div class="title">Study of the orders</div></a><input type="button" class="hashtag" onclick="filterSelection('Orders')" name="category" value="#Orders"></div>
+<div class="filterDiv Residential Beaux-Arts Paris"><a href="http://bibliotheque-numerique.inha.fr/viewer/16778/?offset=#page=1&viewer=thumb " target="_blank"><div class="auth">Calliat, Victor</div><div class="title">Parallèle des maisons de Paris construites depuis 1830 jusqu'à nos jours dessiné et publié</div></a><input type="button" class="hashtag" onclick="filterSelection('Residential')" name="category" value="#Residential"><input type="button" class="hashtag" onclick="filterSelection('Beaux-Arts')" name="category" value="#Beaux-Arts"><input type="button" class="hashtag" onclick="filterSelection('Paris')" name="category" value="#Paris"></div>
+	<div class="filterDiv  Neoclassical United-Kingdom"><div class="auth">Campbell, Colen</div><div class="title">Vitruvius britannicus, or, The British architect</div><a href="https://archive.org/stream/gri_33125008447647#page/n5/mode/thumb " target="_blank"><div class="vol">Volume 1</div></a>
+		<a href="https://archive.org/stream/gri_33125008447589#page/n5/mode/thumb " target="_blank"><div class="vol">Volume 2</div></a>
+			<a href="https://archive.org/stream/gri_33125008447522#page/n5/mode/thumb " target="_blank"><div class="vol">Volume 3</div></a><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"><input type="button" class="hashtag" onclick="filterSelection('United-Kingdom')" name="category" value="#United-Kingdom"></div>
+<div class="filterDiv Pattern-Book Neoclassical "><a href="https://archive.org/stream/gri_33125008699452#page/n5/mode/thumb " target="_blank"><div class="auth">Chambers, William, Sir</div><div class="title">A treatise on the decorative part of civil architecture</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"></div>
+<div class="filterDiv Measured-Drawings Ancient-Greek Greece"><a href="https://archive.org/stream/gri_33125011158744#page/n5/mode/thumb " target="_blank"><div class="auth">Chandler, Richard; Revett, Nicholas</div><div class="title">Ionian antiqvities</div></a><input type="button" class="hashtag" onclick="filterSelection('Measured-Drawings')" name="category" value="#Measured-Drawings"><input type="button" class="hashtag" onclick="filterSelection('Ancient-Greek')" name="category" value="#Ancient-Greek"><input type="button" class="hashtag" onclick="filterSelection('Greece')" name="category" value="#Greece"></div>
+<div class="filterDiv Furniture Baroque "><a href="https://archive.org/stream/gentlemancabine00Chip#page/n5/mode/thumb " target="_blank"><div class="auth">Chippendale, Thomas</div><div class="title">The gentleman and cabinet-maker's director</div></a><input type="button" class="hashtag" onclick="filterSelection('Furniture')" name="category" value="#Furniture"><input type="button" class="hashtag" onclick="filterSelection('Baroque')" name="category" value="#Baroque"></div>
+<div class="filterDiv Measured-Drawings Ancient-Roman Rome"><a href="http://www.e-rara.ch/zut/content/thumbview/2733357" target="_blank"><div class="auth">Cresy, Edward, Taylor, George Ledwell</div><div class="title">The architectural antiquities of Rome</div></a><input type="button" class="hashtag" onclick="filterSelection('Measured-Drawings')" name="category" value="#Measured-Drawings"><input type="button" class="hashtag" onclick="filterSelection('Ancient-Roman')" name="category" value="#Ancient-Roman"><input type="button" class="hashtag" onclick="filterSelection('Rome')" name="category" value="#Rome"></div>
+<div class="filterDiv Residential Beaux-Arts Paris"><a href="http://digi.ub.uni-heidelberg.de/diglit/daly1870bd1_2/0001&ui_lang=eng/thumbs" target="_blank"><div class="auth">Daly, César</div><div class="title">L' architecture privée au XIXe siècle: nouvelles maisons de Paris et de ses environs</div></a><input type="button" class="hashtag" onclick="filterSelection('Residential')" name="category" value="#Residential"><input type="button" class="hashtag" onclick="filterSelection('Beaux-Arts')" name="category" value="#Beaux-Arts"><input type="button" class="hashtag" onclick="filterSelection('Paris')" name="category" value="#Paris"></div>
+	<div class="filterDiv Pattern-Book Neoclassical "><div class="auth">Daly, César Dénis</div><div class="title">Motifs historiques d'architecture et de sculpture d'ornement, du commencement de la renaissance à la fin de Louis XVI</div><a href="https://archive.org/stream/motifshistorique01daly#page/n5/mode/thumb " target="_blank"><div class="vol">Volume 1</div></a>
+		<a href="https://archive.org/stream/motifshistorique02daly#page/n5/mode/thumb " target="_blank"><div class="vol">Volume 2</div></a>
+		<a href="http://objects.library.uu.nl/reader/index.php?obj=1874-45111&lan=en#page//11/19/21/111921947333289751192321707711046259049.jpg/mode/thumb" target="_blank"><div class="vol">Volume 1</div></a>
+		<a href="http://rara.biblhertz.it/Dg536-3010-02" target="_blank"><div class="vol">Volume 2</div></a>
+			<a href="http://rara.biblhertz.it/Dg536-3010-03" target="_blank"><div class="vol">Volume 3</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Baroque')" name="category" value="#Baroque"><input type="button" class="hashtag" onclick="filterSelection('Rome')" name="category" value="#Rome"></div>
+<div class="filterDiv Measured-Drawings Ancient-Roman Rome"><a href="http://digi.ub.uni-heidelberg.de/diglit/desgodets1682/0001&ui_lang=eng /thumbs" target="_blank"><div class="auth">Desgodets, Antoine Babuty</div><div class="title">Les Edifices Antiques De Rome: Dessinés Et Mesurés Très Exactement</div></a><input type="button" class="hashtag" onclick="filterSelection('Measured-Drawings')" name="category" value="#Measured-Drawings"><input type="button" class="hashtag" onclick="filterSelection('Ancient-Roman')" name="category" value="#Ancient-Roman"><input type="button" class="hashtag" onclick="filterSelection('Rome')" name="category" value="#Rome"></div>
+<div class="filterDiv Pattern-Book Neoclassical Paris"><a href="http://bibliotheque-numerique.inha.fr/viewer/7213/?offset=#page=1&viewer=thumb " target="_blank"><div class="auth">Dumont, Gabriel-Pierre-Martin</div><div class="title">Plans, relevés et projets architecturaux</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"><input type="button" class="hashtag" onclick="filterSelection('Paris')" name="category" value="#Paris"></div>
+<div class="filterDiv   "><a href="http://www.e-rara.ch/zut/content/thumbview/2742499" target="_blank"><div class="auth">Durand, Jean-Nicolas-Louis</div><div class="title">Recueil et parallèle des édifices de tout genre, anciens et modernes</div></a></div>
+<div class="filterDiv Measured-Drawings Romanesque Italy"><a href="http://bibliotheque-numerique.inha.fr/viewer/15952/?offset=#page=1&viewer=thumb " target="_blank"><div class="auth">Espouy, Hector d'; Daumet, Georges</div><div class="title">Fragments d'architecture du Moyen âge et de la Renaissance</div></a><input type="button" class="hashtag" onclick="filterSelection('Measured-Drawings')" name="category" value="#Measured-Drawings"><input type="button" class="hashtag" onclick="filterSelection('Romanesque')" name="category" value="#Romanesque"><input type="button" class="hashtag" onclick="filterSelection('Italy')" name="category" value="#Italy"></div>
+<div class="filterDiv Residential Beaux-Arts Paris"><a href="http://bibliotheque-numerique.inha.fr/viewer/15748/?offset=#page=1&viewer=thumb " target="_blank"><div class="auth">Gélis-Didot, Pierre; Lambert, Th.</div><div class="title">Hôtels et maisons de Paris</div></a><input type="button" class="hashtag" onclick="filterSelection('Residential')" name="category" value="#Residential"><input type="button" class="hashtag" onclick="filterSelection('Beaux-Arts')" name="category" value="#Beaux-Arts"><input type="button" class="hashtag" onclick="filterSelection('Paris')" name="category" value="#Paris"></div>
+<div class="filterDiv Pattern-Book Neoclassical "><a href="http://www.e-rara.ch/zut/content/thumbview/1286929 " target="_blank"><div class="auth">Gibbs, James</div><div class="title">Rules for Drawing the several Parts of Architecture</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"></div>
+<div class="filterDiv Pattern-Book Neoclassical "><a href="https://archive.org/stream/bookofarchitectu0000gibb#page/n1/mode/thumb" target="_blank"><div class="auth">Gibbs, James</div><div class="title">A book of architecture containing designs of buildings and ornaments</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"></div>
+<div class="filterDiv Residential Renaissance Italy"><a href="https://archive.org/stream/architecturetosc00granuoft#page/n5/mode/thumb " target="_blank"><div class="auth">Grandjean de Montigny, Auguste Henri Victor; Famin, Auguste Pierre Sainte Marie</div><div class="title">Architecture toscane; ou, Palais, maisons et autres édifices de la Toscane</div></a><input type="button" class="hashtag" onclick="filterSelection('Residential')" name="category" value="#Residential"><input type="button" class="hashtag" onclick="filterSelection('Renaissance')" name="category" value="#Renaissance"><input type="button" class="hashtag" onclick="filterSelection('Italy')" name="category" value="#Italy"></div>
+<div class="filterDiv Measured-Drawings Ancient-Greek Italy"><a href="http://digi.ub.uni-heidelberg.de/diglit/hittorff1851bd2/0001&ui_lang=eng/thumbs " target="_blank"><div class="auth">Hittorff, Jacques Ignace</div><div class="title">Restitution du temple d'Empédocle à Sélinonte, ou l'architecture polychrôme chez les Grecs</div></a><input type="button" class="hashtag" onclick="filterSelection('Measured-Drawings')" name="category" value="#Measured-Drawings"><input type="button" class="hashtag" onclick="filterSelection('Ancient-Greek')" name="category" value="#Ancient-Greek"><input type="button" class="hashtag" onclick="filterSelection('Italy')" name="category" value="#Italy"></div>
+<div class="filterDiv Monograph Renaissance United-Kingdom"><a href="https://archive.org/stream/designsInigoJon1Jone#page/n5/mode/thumb " target="_blank"><div class="auth">Jones, Inigo; Kent, William</div><div class="title">The designs of Inigo Jones: consisting of plans and elevations for publick and private buildings</div></a><input type="button" class="hashtag" onclick="filterSelection('Monograph')" name="category" value="#Monograph"><input type="button" class="hashtag" onclick="filterSelection('Renaissance')" name="category" value="#Renaissance"><input type="button" class="hashtag" onclick="filterSelection('United-Kingdom')" name="category" value="#United-Kingdom"></div>
+<div class="filterDiv Pattern-Book Neoclassical "><a href="http://www.e-rara.ch/zut/content/thumbview/3404356 " target="_blank"><div class="auth">Jones, Inigo; Ware Isaac</div><div class="title">A complete body of architecture: adorned with plans and elevations from original designs, in which are interspersed some designs of Inigo Jones</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"></div>
+<div class="filterDiv Ornament  "><a href="http://digi.ub.uni-heidelberg.de/diglit/jones1856/0001&ui_lang=eng/thumbs " target="_blank"><div class="auth">Jones, Owen</div><div class="title">Grammatik der Ornamente: illustrirt mit Mustern von den verschiedenen Stylarten der Ornamente in hundert und zwölf Tafeln</div></a><input type="button" class="hashtag" onclick="filterSelection('Ornament')" name="category" value="#Ornament"></div>
+<div class="filterDiv Ornament Victorian "><a href="https://archive.org/stream/ExamplesChinese00Jone#page/n5/mode/thumb " target="_blank"><div class="auth">Jones, Owen</div><div class="title">Examples of Chinese ornament: selected from objects in the South Kensington Museum and other collections</div></a><input type="button" class="hashtag" onclick="filterSelection('Ornament')" name="category" value="#Ornament"><input type="button" class="hashtag" onclick="filterSelection('Victorian')" name="category" value="#Victorian"></div>
+<div class="filterDiv Pattern-Book Neoclassical "><a href="https://archive.org/stream/citycountrybuild00lang#page/n0/mode/thumb" target="_blank"><div class="auth">Langley, Batty</div><div class="title">The city and country builder's and workman's treasury of designs</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"></div>
+	<div class="filterDiv Measured-Drawings Renaissance Rome"><div class="auth">Letarouilly, Paul Marie</div><div class="title">Édifices de Rome moderne; ou, Recueil des palais, maisons, églises, couvents et autres monuments publics et particuliers les plus remarquables de la ville de Rome</div><a href="https://archive.org/stream/dificesderomem01leta#page/n5/mode/thumb" target="_blank"><div class="vol">Volume 1</div></a>
+		<a href="https://archive.org/stream/dificesderomem02leta#page/n5/mode/thumb" target="_blank"><div class="vol">Volume 2</div></a>
+			<a href="https://archive.org/stream/dificesderomem03leta#page/n5/mode/thumb" target="_blank"><div class="vol">Volume 3</div></a><input type="button" class="hashtag" onclick="filterSelection('Measured-Drawings')" name="category" value="#Measured-Drawings"><input type="button" class="hashtag" onclick="filterSelection('Renaissance')" name="category" value="#Renaissance"><input type="button" class="hashtag" onclick="filterSelection('Rome')" name="category" value="#Rome"></div>
+<div class="filterDiv Orders  "><a href="https://archive.org/stream/greekromanorders00maucuoft#page/n5/mode/thumb " target="_blank"><div class="auth">Mauch, Johann Matthäus von</div><div class="title">The Greek and Roman orders</div></a><input type="button" class="hashtag" onclick="filterSelection('Orders')" name="category" value="#Orders"></div>
+<div class="filterDiv Monograph Beaux-Arts United-States"><a href="https://drive.google.com/drive/folders/0BzLhr39ZcGvcdWlGWDkzeUtGR0U?usp=sharing " target="_blank"><div class="auth">McKim, Mead & White</div><div class="title">A monograph of the work of McKim, Mead & White, 1879-1915.</div></a><input type="button" class="hashtag" onclick="filterSelection('Monograph')" name="category" value="#Monograph"><input type="button" class="hashtag" onclick="filterSelection('Beaux-Arts')" name="category" value="#Beaux-Arts"><input type="button" class="hashtag" onclick="filterSelection('United-States')" name="category" value="#United-States"></div>
+<div class="filterDiv Residential Neoclassical Survey"><a href="https://archive.org/stream/selectarchitectu00morr#page/n5/mode/thumb " target="_blank"><div class="auth">Morris, Robert</div><div class="title">Select architecture: being regular designs of plans and elevations well suited to both town and country</div></a><input type="button" class="hashtag" onclick="filterSelection('Residential')" name="category" value="#Residential"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"><input type="button" class="hashtag" onclick="filterSelection('Survey')" name="category" value="#Survey"></div>
+	<div class="filterDiv Pattern-Book Neoclassical "><div class="auth">Neufforge, Jean-François de</div><div class="title">Recueil élémentaire d'architecture</div><a href="http://bibliotheque-numerique.inha.fr/viewer/15725/?offset=#page=1&viewer=thumb " target="_blank"><div class="vol">Volumes 1-2</div></a>
+		<a href="http://bibliotheque-numerique.inha.fr/viewer/15728/?offset=1#page=2&viewer=thumb" target="_blank"><div class="vol">Volumes 3-4</div></a>
+		<a href="http://bibliotheque-numerique.inha.fr/viewer/15729/?offset=2#page=2&viewer=thumb" target="_blank"><div class="vol">Volumes 5-6</div></a>
+		<a href="http://bibliotheque-numerique.inha.fr/viewer/15730/?offset=6#page=2&viewer=thumb" target="_blank"><div class="vol">Volumes 7-8</div></a>
+		<a href="http://bibliotheque-numerique.inha.fr/viewer/15731/?offset=4#page=2&viewer=thumb" target="_blank"><div class="vol">Supplipment - Vol. 1</div></a>
+			<a href="http://bibliotheque-numerique.inha.fr/viewer/15732/?offset=5#page=1&viewer=thumb" target="_blank"><div class="vol">Supplipment - Vol. 2</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"></div>
+<div class="filterDiv  Islamic "><a href="http://gallica.bnf.fr/ark:/12148/bpt6k63798932/f1.planchecontact " target="_blank"><div class="auth">Normand, Alfred-Nicolas</div><div class="title">L'architecture des nations étrangères: étude sur les principales constructions du parc à l'Exposition universelle de Paris</div></a><input type="button" class="hashtag" onclick="filterSelection('Islamic')" name="category" value="#Islamic"></div>
+<div class="filterDiv Pattern-Book Neoclassical United-States"><a href="https://archive.org/stream/practicalbuilder00pain_0#page/n1/mode/thumb" target="_blank"><div class="auth">Pain, William</div><div class="title">Practical builder, or, Workman's general assistant</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"><input type="button" class="hashtag" onclick="filterSelection('United-States')" name="category" value="#United-States"></div>
+<div class="filterDiv Orders Renaissance "><a href="https://archive.org/stream/architecturePal00Pall#page/n5/mode/thumb " target="_blank"><div class="auth">Palladio, Andrea; Leoni, Giacomo</div><div class="title">The architecture of A. Palladio, in four books: containing, a short treatise of the five orders, and the most necessary observations concerning all sorts of building... to which are added several notes and observations made by Inigo Jones</div></a><input type="button" class="hashtag" onclick="filterSelection('Orders')" name="category" value="#Orders"><input type="button" class="hashtag" onclick="filterSelection('Renaissance')" name="category" value="#Renaissance"></div>
+<div class="filterDiv Residential Beaux-Arts Rome"><a href="https://archive.org/stream/palaismaisonseta00perc#page/n5/mode/thumb " target="_blank"><div class="auth">Percier, Charles</div><div class="title">Palais, maisons, et autres édifices modernes, dessinés a Rome</div></a><input type="button" class="hashtag" onclick="filterSelection('Residential')" name="category" value="#Residential"><input type="button" class="hashtag" onclick="filterSelection('Beaux-Arts')" name="category" value="#Beaux-Arts"><input type="button" class="hashtag" onclick="filterSelection('Rome')" name="category" value="#Rome"></div>
+	<div class="filterDiv Pattern-Book Baroque Italy"><div class="auth">Ruggieri, Ferdinando</div><div class="title">Scelta di architetture antiche e moderne della città di Firenze</div><a href="https://archive.org/stream/gri_33125008652899#page/n5/mode/thumb" target="_blank"><div class="vol">Volumes 1-2</div></a>
+			<a href="https://archive.org/stream/gri_33125008652956#page/n7/mode/thumb" target="_blank"><div class="vol">Volumes 3-4</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Baroque')" name="category" value="#Baroque"><input type="button" class="hashtag" onclick="filterSelection('Italy')" name="category" value="#Italy"></div>
+	<div class="filterDiv Ecclesiastical Romanesque United-Kingdom"><div class="auth">Ruprich-Robert, Victor</div><div class="title">L'Architecture normande aux XIème et XIIème siècles en Normandie et en Angleterre</div><a href="http://bibliotheque-numerique.inha.fr/viewer/15950/?offset=#page=1&viewer=thumb " target="_blank"><div class="vol">Volume 1</div></a>
+			<a href="http://bibliotheque-numerique.inha.fr/viewer/15951/?offset=#page=1&viewer=thumb " target="_blank"><div class="vol">Volume 2</div></a><input type="button" class="hashtag" onclick="filterSelection('Ecclesiastical')" name="category" value="#Ecclesiastical"><input type="button" class="hashtag" onclick="filterSelection('Romanesque')" name="category" value="#Romanesque"><input type="button" class="hashtag" onclick="filterSelection('United-Kingdom')" name="category" value="#United-Kingdom"></div>
+<div class="filterDiv Orders Renaissance Monograph"><a href="https://archive.org/stream/darchitecturedev00scam#page/n5/mode/thumb " target="_blank"><div class="auth">Scamozzi, Vincenzo; Aviler, Augustin-Charles d'</div><div class="title">Oeuvres d'architecture de Vincent Scamozzi</div></a><input type="button" class="hashtag" onclick="filterSelection('Orders')" name="category" value="#Orders"><input type="button" class="hashtag" onclick="filterSelection('Renaissance')" name="category" value="#Renaissance"><input type="button" class="hashtag" onclick="filterSelection('Monograph')" name="category" value="#Monograph"></div>
+	<div class="filterDiv Monograph Neoclassical Germany"><div class="auth">Schinkel, Karl Friedrich</div><div class="title">Sammlung architektonischer Entwürfe: enthaltend theils Werke welche ausgeführt sind theils Gegenstände deren Ausführung beabsichtigt wurde</div><a href="http://digi.ub.uni-heidelberg.de/diglit/schinkel1858tafeln1/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 1</div></a>
+		<a href="http://digi.ub.uni-heidelberg.de/diglit/schinkel1858tafeln2/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 2</div></a>
+		<a href="http://digi.ub.uni-heidelberg.de/diglit/schinkel1858tafeln3/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 3</div></a>
+			<a href="http://digi.ub.uni-heidelberg.de/diglit/schinkel1858tafeln4/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 4</div></a><input type="button" class="hashtag" onclick="filterSelection('Monograph')" name="category" value="#Monograph"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"><input type="button" class="hashtag" onclick="filterSelection('Germany')" name="category" value="#Germany"></div>
+<div class="filterDiv Pattern-Book Renaissance "><a href="https://archive.org/stream/ldpd_12223091_000#page/n5/mode/thumb " target="_blank"><div class="auth">Serlio, Sebastiano</div><div class="title">Extraordinario libro di architettura di Sebastiano Serlio</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Renaissance')" name="category" value="#Renaissance"></div>
+<div class="filterDiv Garden-Structures Neoclassical "><a href="http://gallica.bnf.fr/ark:/12148/btv1b8528563k/f1.planchecontact " target="_blank"><div class="auth">Soan, John</div><div class="title">Designs in architecture; consisting of plans, elevations and sections, for temples, baths, cassines, pavilions, garden-seats, obelisks, and other buildings</div></a><input type="button" class="hashtag" onclick="filterSelection('Garden-Structures')" name="category" value="#Garden-Structures"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"></div>
+<div class="filterDiv Measured-Drawings Ancient-Greek Greece"><a href="http://digi.ub.uni-heidelberg.de/diglit/dilettanti1833/0001&ui_lang=eng/thumbs " target="_blank"><div class="auth">Society of Dilettanti</div><div class="title">The unedited antiquities of Attica: comprising the architectural remains of Eleusis, Rhamnus, Sunium, and Thoricus</div></a><input type="button" class="hashtag" onclick="filterSelection('Measured-Drawings')" name="category" value="#Measured-Drawings"><input type="button" class="hashtag" onclick="filterSelection('Ancient-Greek')" name="category" value="#Ancient-Greek"><input type="button" class="hashtag" onclick="filterSelection('Greece')" name="category" value="#Greece"></div>
+<div class="filterDiv Monograph Neoclassical Paris"><a href="http://bibliotheque-numerique.inha.fr/viewer/12763/?offset=#page=1&viewer=thumb" target="_blank"><div class="auth">Soufflot, Jacques-Germain; Sellier, François Noël; Taraval, Louis Gustave; Poulleau, Claude René Gabriel; Dumont, François</div><div class="title">Oeuvres de Jacques-Germain Soufflot. Chevalier de l'Ordre du roi, architecte de Sa Majesté, Intendant général de ses Bâtimens...</div></a><input type="button" class="hashtag" onclick="filterSelection('Monograph')" name="category" value="#Monograph"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"><input type="button" class="hashtag" onclick="filterSelection('Paris')" name="category" value="#Paris"></div>
+	<div class="filterDiv Measured-Drawings Ancient-Greek Greece"><div class="auth">Stuart, James; Revett, Nicholas</div><div class="title">The Antiquities of Athens, measured and delineated by James Stuart, F.R.S. and F.S.A. and Nicholas Revett, Painters and Architects</div><a href="http://bibliotheque-numerique.inha.fr/viewer/19156/?offset=1#page=1&viewer=thumb" target="_blank"><div class="vol">Volumes 1-2</div></a>
+			<a href="http://bibliotheque-numerique.inha.fr/viewer/19167/?offset=2#page=5&viewer=thumb" target="_blank"><div class="vol">Volumes 3-4</div></a><input type="button" class="hashtag" onclick="filterSelection('Measured-Drawings')" name="category" value="#Measured-Drawings"><input type="button" class="hashtag" onclick="filterSelection('Ancient-Greek')" name="category" value="#Ancient-Greek"><input type="button" class="hashtag" onclick="filterSelection('Greece')" name="category" value="#Greece"></div>
+<div class="filterDiv Measured-Drawings Ancient-Greek Greece"><a href="http://bibliotheque-numerique.inha.fr/viewer/19169/?offset=#page=1&viewer=thumb " target="_blank"><div class="auth">Stuart, James; Revett, Nicholas</div><div class="title">Antiquities of Athens and other places of Greece, Sicily, etc.: Supplementary to the Antiquities of Athens</div></a><input type="button" class="hashtag" onclick="filterSelection('Measured-Drawings')" name="category" value="#Measured-Drawings"><input type="button" class="hashtag" onclick="filterSelection('Ancient-Greek')" name="category" value="#Ancient-Greek"><input type="button" class="hashtag" onclick="filterSelection('Greece')" name="category" value="#Greece"></div>
+<div class="filterDiv Orders  "><a href="http://digi.ub.uni-heidelberg.de/diglit/uhde1902/0001&ui_lang=eng/thumbs " target="_blank"><div class="auth">Uhde, Constantin</div><div class="title">Die Architekturformen des klassischen Alterthums mit besonderer Berücksichtigung der Säulenordnung und Gesimsbildung</div></a><input type="button" class="hashtag" onclick="filterSelection('Orders')" name="category" value="#Orders"></div>
+<div class="filterDiv Pattern-Book Baroque "><a href="https://archive.org/stream/istruzionidivers02vitt#page/n5/mode/thumb " target="_blank"><div class="auth">Vittone, Bernardo Antonio</div><div class="title">Istruzioni diverse concernenti l'officio dell'architetto civile</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Baroque')" name="category" value="#Baroque"></div>
+<div class="filterDiv Pattern-Book Neoclassical "><a href="https://archive.org/stream/designsofinigojo00ware#page/n5/mode/thumb " target="_blank"><div class="auth">Ware, Isaac; Kent, William</div><div class="title">Designs of Inigo Jones and others</div></a><input type="button" class="hashtag" onclick="filterSelection('Pattern-Book')" name="category" value="#Pattern-Book"><input type="button" class="hashtag" onclick="filterSelection('Neoclassical')" name="category" value="#Neoclassical"></div>
+<div class="filterDiv Measured-Drawings Ancient-Roman Rome"><a href="http://digi.ub.uni-heidelberg.de/diglit/wood1757/0001&ui_lang=eng/thumbs " target="_blank"><div class="auth">Wood, Robert</div><div class="title">The ruins of Balbec, otherwise Heliopolis in Coelosyria</div></a><input type="button" class="hashtag" onclick="filterSelection('Measured-Drawings')" name="category" value="#Measured-Drawings"><input type="button" class="hashtag" onclick="filterSelection('Ancient-Roman')" name="category" value="#Ancient-Roman"><input type="button" class="hashtag" onclick="filterSelection('Rome')" name="category" value="#Rome"></div>
+<div class="filterDiv Measured-Drawings Ancient-Roman Rome"><a href="http://digi.ub.uni-heidelberg.de/diglit/wood1753b/0001&ui_lang=eng/thumbs " target="_blank"><div class="auth">Wood, Robert </div><div class="title">Les Ruines De Palmyre, Autrement Dite Tedmor, Au Désert</div></a><input type="button" class="hashtag" onclick="filterSelection('Measured-Drawings')" name="category" value="#Measured-Drawings"><input type="button" class="hashtag" onclick="filterSelection('Ancient-Roman')" name="category" value="#Ancient-Roman"><input type="button" class="hashtag" onclick="filterSelection('Rome')" name="category" value="#Rome"></div>
+	<div class="filterDiv Residential Prarie-Style United-States"><div class="auth">Wright, Frank Lloyd</div><div class="title">Ausgeführte Bauten und Entwürfe von Frank Lloyd Wright</div><a href="https://collections.lib.utah.edu/details?id=204354 " target="_blank"><div class="vol">Volume 1</div></a>
+			<a href="https://collections.lib.utah.edu/details?id=204376 " target="_blank"><div class="vol">Volume 2</div></a><input type="button" class="hashtag" onclick="filterSelection('Residential')" name="category" value="#Residential"><input type="button" class="hashtag" onclick="filterSelection('Prarie-Style')" name="category" value="#Prarie-Style"><input type="button" class="hashtag" onclick="filterSelection('United-States')" name="category" value="#United-States"></div>
+	<div class="filterDiv Ornament Ancient-Roman Italy"><div class="auth">Zahn, Wilhelm</div><div class="title">Die schönsten Ornamente und merkwürdigsten Gemälde aus Pompeji, Herculanum und Stabiae</div><a href="http://digi.ub.uni-heidelberg.de/diglit/zahn1828bd1/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 1</div></a>
+		<a href="http://digi.ub.uni-heidelberg.de/diglit/zahn1842bd2/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 2</div></a>
+			<a href="http://digi.ub.uni-heidelberg.de/diglit/zahn1852bd3/0001&ui_lang=eng/thumbs " target="_blank"><div class="vol">Volume 3</div></a><input type="button" class="hashtag" onclick="filterSelection('Ornament')" name="category" value="#Ornament"><input type="button" class="hashtag" onclick="filterSelection('Ancient-Roman')" name="category" value="#Ancient-Roman"><input type="button" class="hashtag" onclick="filterSelection('Italy')" name="category" value="#Italy"></div></ul>
+</div>
 <script>
-filterSelection("all")
-function filterSelection(c) {
-  var x, i;
-  x = document.getElementsByClassName("filterDiv");
-  if (c == "all") c = "";
-  for (i = 0; i < x.length; i++) {
-    w3RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-  }
-}
-
-function w3AddClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
-  }
-}
-
-function w3RemoveClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    while (arr1.indexOf(arr2[i]) > -1) {
-      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    filterSelection("all")
+    function filterSelection(c) {
+      var x, i;
+      x = document.getElementsByClassName("filterDiv");
+      if (c == "all") c = "";
+      for (i = 0; i < x.length; i++) {
+        w3RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+      }
     }
-  }
-  element.className = arr1.join(" ");
-}
+
+    function w3AddClass(element, name) {
+      var i, arr1, arr2;
+      arr1 = element.className.split(" ");
+      arr2 = name.split(" ");
+      for (i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+      }
+    }
+
+    function w3RemoveClass(element, name) {
+      var i, arr1, arr2;
+      arr1 = element.className.split(" ");
+      arr2 = name.split(" ");
+      for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+          arr1.splice(arr1.indexOf(arr2[i]), 1);
+        }
+      }
+      element.className = arr1.join(" ");
+    }
+    function myFunction() {
+      var input = document.getElementById("Search");
+      var filter = input.value.toLowerCase();
+      var nodes = document.getElementsByClassName('filterDiv');
+
+      for (i = 0; i < nodes.length; i++) {
+        if (nodes[i].innerText.toLowerCase().includes(filter)) {
+          nodes[i].style.display = "block";
+        } else {
+          nodes[i].style.display = "none";
+        }
+      }
+    }
 </script>
 
 </body>
