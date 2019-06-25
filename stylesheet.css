@@ -1,0 +1,47 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+a:link, a:visited, a:hover, a:active {
+  color: blue;
+  text-decoration-skip: ink;
+  -webkit-text-decoration-skip: ink;
+}
+::-moz-selection { /* Code for Firefox */
+  background: #e6edf7;
+}
+::selection {
+  background: #e6edf7;
+}
+body {
+  margin: 12% calc(31% - 182.4px);
+  font-size: calc(2vw + 19.2px);
+  font-family: 'intersemi_bold', sans-serif;
+  line-height: 1.25;
+  opacity: .75;
+  letter-spacing: -0.05em;
+  background-color: #faf8f7;
+}
+@media only screen and (max-width: 640px) {
+  body {
+    margin: 12% 2.5%;
+    font-size: 5vw;
+  }
+}
+.headline {
+  text-align: left;
+  font-size: 125%;
+  margin-bottom: 1.25em;
+  font-weight:500;
+}
+.menu {
+  text-align: center;
+  font-size: 115%;
+  font-weight: 400;
+  margin:.75em
+}
