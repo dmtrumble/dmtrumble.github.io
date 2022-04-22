@@ -11,7 +11,7 @@ a:link, a:visited, a:hover, a:active {
   color: black;
   text-decoration-skip: ink;
   -webkit-text-decoration-skip: ink;
-  opacity: .5;
+  opacity: .375;
   text-decoration: none;
 }
 ::-moz-selection { /* Code for Firefox */
