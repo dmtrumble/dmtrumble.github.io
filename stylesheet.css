@@ -16,7 +16,7 @@ a:link, a:visited, a:hover, a:active {
 }
 ::-moz-selection { /* Code for Firefox */
   background: white;
-  
+
 }
 ::selection {
   background: white;
@@ -32,19 +32,36 @@ body {
 }
 @media only screen and (max-width: 640px) {
   body {
-    margin: 12% 2.5%;
-    font-size: 5vw;
+    margin: 15vh 2vh;
+    font-size: 8vw;
   }
 }
 .headline {
-  text-align: center;
+  text-align: left;
   font-size: 100%;
   margin-bottom: 1.25em;
   font-weight:500;
 }
 .menu {
-  text-align: center;
   font-size: 90%;
   font-weight: 400;
-  margin:.5em;
+}
+
+.nav ul {
+  display: flex;
+  padding-left: 0;
+  margin-top: 18vh;
+}
+
+.nav ul li {
+  list-style:none;
+  flex: 0 0 33.333333%
+}
+
+li:last-child {
+  text-align: right;
+}
+
+li:nth-child(2) {
+  text-align: center;
 }
