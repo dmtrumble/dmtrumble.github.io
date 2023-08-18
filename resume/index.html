@@ -21,12 +21,11 @@
               box-sizing: border-box;
             }
             body {
-              margin: 2% calc(45.25% - 273.6px);
+              margin: 15vh calc(45.25% - 273.6px);
               font-size: calc(0.5vw + 28.8px);
               text-align:left;
               background-color: snow;
-             
-		    opacity: .75;
+              opacity: .75;
             }
             a:link, a:visited, a:hover, a:active {
         			color: black;
@@ -35,7 +34,7 @@
             }
             @media only screen and (max-width: 640px) {
             	body {
-            		margin: 2% 2.5%;
+            		margin: 10vh 2.5%;
             		font-size: 5vw;
             		}
             }
@@ -43,10 +42,10 @@
               font-size:70%;
               font-family: sans-serif;
               font-weight:400;
-	      text-align: center;
+	            text-align: left;
               line-height: 1.25;
-	      opacity: .475;
-		    letter-spacing: -0.025em;
+	            opacity: .475;
+		          letter-spacing: -0.025em;
             }
             .name {
               font-family: sans-serif;
@@ -56,8 +55,8 @@
               margin-top: 1em;
               margin-bottom: 1.4em;
               text-transform: none;
-		    opacity: .9;
-		    letter-spacing: -0.05em;
+		          opacity: .9;
+		          letter-spacing: -0.05em;
             }
             .section {
               font-family: sans-serif;
@@ -67,8 +66,8 @@
               margin-top: 1.70em;
               margin-bottom: .15em;
               text-transform: none;
-		    opacity: .9;
-		    letter-spacing: -0.025em;
+		          opacity: .9;
+		          letter-spacing: -0.025em;
             }
             .entry {
               font-family: sans-serif;
@@ -79,7 +78,7 @@
               margin-top: 0px;
               margin-bottom: 3.25em;
               text-transform: none;
-		    letter-spacing: -0.025em;
+		          letter-spacing: -0.025em;
             }
             .skillslist {
               font-family: sans-serif;
@@ -97,19 +96,35 @@
       			::selection {
           		background: #e6edf7;
       			}
+            .homelink ul {
+      			  display: flex;
+      			  padding-left: 0;
+              margin-bottom: 12vh;
+      			}
+
+      			.homelink ul li {
+      			  list-style:none;
+      			  flex: 0 0 49.9999%
+      			}
+
+      			li:last-child {
+      			  text-align: right;
+      			}
         </style>
     </head>
     <body>
-        <header class="homelink"><a href="..">Home</a></header>
-        <h1 class="name">Dan  Trumble</h1>
-	<h2 class="section"><a href="https://gradenewyork.com/home" target="_blank">GRADE</a></h2>
+        <header class="homelink">
+          <ul>
+            <li> <a href="..">Home</a> </li>
+            <li> <a href="../contact">Contact</a> </li>
+        </ul>
+        </header>
+	       <h2 class="section"><a href="https://gradenewyork.com/home" target="_blank">GRADE</a></h2>
         <h3 class="entry">Senior Project Manager,  2021 - present</h3>
         <h2 class="section"><a href="http://www.ppapc.com" target="_blank">Peter Pennoyer Architects</a></h2>
         <h3 class="entry">Senior Associate,  2014 - 2021</h3>
         <h2 class="section"><a href="https://www.lichtenarchitects.com/" target="_blank">Lichten Architects</a></h2>
         <h3 class="entry">Associate,  2011 - 2014</h3>
-        <h2 class="section" style="letter-spacing:.01em;"><a href="https://architecture.nd.edu/" target="_blank">University  of  Notre Dame</a></h2>
+        <h2 class="section" style="letter-spacing:-.02em;"><a href="https://architecture.nd.edu/" target="_blank">University  of  Notre Dame</a></h2>
         <h3 class="entry">B. Arch,  2011</h3>
-	      <footer class="homelink"><a href="../contact">Contact</a></footer>
-
 </html>
