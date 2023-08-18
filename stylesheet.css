@@ -51,11 +51,12 @@ body {
   display: flex;
   padding-left: 0;
   margin-top: 18vh;
+  justify-content: space-between;
 }
 
 .nav ul li {
   list-style:none;
-  flex: 0 0 33.333333%
+ 
 }
 
 li:last-child {
