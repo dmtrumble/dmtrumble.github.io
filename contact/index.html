@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="http://gmpg.org/xfn/11" rel="profile">
-		
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Contact Dan Trumble for opportunities, collaborations, or just to say hello.">
   		<meta name="keywords" content="Dan Trumble, architect, New York, architecture, Dan Trumble, contact, email, telephone, address">
@@ -21,20 +21,20 @@
         box-sizing: border-box;
       }
       body {
- 				margin: 2% calc(45.25% - 273.6px);
-              font-size: calc(0.5vw + 28.8px);
+ 				margin: 15vh calc(45.25% - 273.6px);
+        font-size: calc(0.5vw + 28.8px);
 				font-family: sans-serif;
         line-height: 1.25;
         word-spacing: -.1em;
 				opacity: .75;
 				background-color: snow;
-				text-align: center;
+				text-align: left;
 	      letter-spacing: -0.025em;
-	      
+
       }
 			@media only screen and (max-width: 640px) {
 				body {
-					margin: 5% 2.5%;
+					margin: 12vh 1vh;
 					font-size: 5vw;
 					}
 			}
@@ -44,18 +44,16 @@
 			}
 			.homelink {
 				font-size: 150%;
-				margin-top: 1.75em;
+				margin-top: 15vh;
 				opacity: .625;
       }
       .phone {
-        font-size: 125%;
-				margin-top: 2.5em;
+        font-size: 115%;
 				margin-bottom: 0;
 	      font-weight: 400;
       }
       .email {
-        font-size: 125%;
-        margin-top: 0;
+        font-size: 115%;
 	      font-weight: 400;
 
       }
@@ -65,11 +63,28 @@
 			::selection {
 				background: #fafafa;
 			}
+			.nav ul {
+			  display: flex;
+			  padding-left: 0;
+			}
+
+			.nav ul li {
+			  list-style:none;
+			  flex: 0 0 45.9999%
+			}
+
+			li:last-child {
+			  text-align: right;
+			}
 		</style>
 	</head>
 	<body>
-        <h1 class="phone"><a href="tel:304-671-0284">(304) 671-0284</a></h1>
-        <h1 class="email"><a href="mailto:dtrumble@gmail.com">dtrumble@gmail.com</a></h1>
+			<div class="nav">
+				<ul>
+        	<li> <h1 class="phone"><a href="tel:304-671-0284">(304) 671-0284</a></h1> </li>
+        	<li> <h1 class="email"><a href="mailto:dtrumble@gmail.com">dtrumble@gmail.com</a></h1> </li>
+				</ul>
+			</div>
 				<p class="homelink"><a href="..">&#8617;&#xFE0E</a></p>
 	</body>
 </html>
