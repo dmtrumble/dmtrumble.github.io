@@ -1,0 +1,183 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+a:link, a:visited, a:hover, a:active {
+  color: black;
+  text-decoration-skip: ink;
+  -webkit-text-decoration-skip: ink;
+  text-decoration: none;
+}
+::-moz-selection { /* Code for Firefox */
+  background: lightgrey;
+
+}
+::selection {
+  background: lightgrey;
+}
+body {
+  margin: 2vh calc(31% - 182.4px);
+  font-size: calc(2vw + 19.2px);
+  font-family: sans-serif;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  background-color: white;
+}
+@media only screen and (max-width: 640px) {
+  body {
+    margin: 2vh 2.5%;
+    font-size: 5vw;
+  }
+}
+.header {
+  text-align: left;
+  font-size: 35%;
+  margin-bottom: .5em;
+  font-weight:500;
+  position: sticky;
+  padding: 0.25em;
+  padding-left: 0;
+  background: white;
+  border-bottom: solid .05em lightgrey;
+  border-left: solid .1em white;
+  border-right: solid .1em white;
+  color: rgba(0, 0, 0, 0.4);
+  top:0em;
+}
+
+.title {
+  text-align: left;
+  font-size: 50%;
+  font-weight: 100;
+  opacity: .55;
+}
+.title a:link {
+  font-weight: 100;
+  opacity: .55;
+}
+img {
+	max-width: 99.5%;
+  height: auto;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: .25em;
+}
+video {
+	max-width: 100%;
+	height: auto;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  	opacity: .9;
+}
+.title ul {
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 2vh;
+}
+
+.title ul li {
+  list-style:none;
+  flex: 0 0 49.333333%
+}
+
+li:last-child {
+  text-align: right;
+}
+
+p {
+  margin: 3.5vh;
+}
+
+/** LIGHTBOX MARKUP **/
+
+.lightbox {
+  /* Default to hidden */
+  display: none;
+
+  /* Overlay entire screen */
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* A bit of padding around image */
+  padding: 1em;
+
+  /* Translucent background */
+  background: rgba(255, 255, 255);
+}
+
+/* Unhide the lightbox when it's the target */
+.lightbox:target {
+  display: block;
+}
+
+.lightbox span {
+  /* Full width and height */
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  /* Size and position background image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.galimage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.gallery {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
+}
+
+.header ul {
+  display: flex;
+  padding: 0;
+  margin-bottom: .5vh;
+}
+
+.header ul li {
+  list-style:none;
+  flex: 0 0 49.333333%
+}
+
+.header a:link {
+  font-weight: 100;
+  opacity: .55;
+}
+.container {
+  position: relative;
+  text-align: left;
+  color: gray;
+  overflow: hidden;
+}
+.caption {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: white;
+
+  font-size: 45%;
+  font-weight: 100;
+  opacity: .75;
+  padding-left: .4vw;
+  color: grey;
+}

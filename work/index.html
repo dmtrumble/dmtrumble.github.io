@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Dan Trumble - Password Protected</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<style>
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+a:link, a:visited, a:hover, a:active {
+  color: black;
+  text-decoration-skip: ink;
+  -webkit-text-decoration-skip: ink;
+  text-decoration: none;
+}
+::-moz-selection { /* Code for Firefox */
+  background: lightgrey;
+
+}
+::selection {
+  background: lightgrey;
+}
+body {
+	margin: 2vh calc(31% - 182.4px);
+  font-size: calc(2vw + 19.2px);
+  font-family: sans-serif;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+	font-family: sans-serif;
+  font-weight: 100;
+}
+@media only screen and (max-width: 640px) {
+  body input button {
+    margin: 2vh 2.5%;
+    font-size: 5vw;
+  }
+}
+
+.box {
+	text-align: left;
+	margin: auto;
+	padding: 12px;
+	font-size: calc(.75*(2vw + 19.2px));
+}
+
+.lightbox {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: snow;
+	text-align: center;
+	margin: auto;
+	opacity: .55;
+}
+
+div.horizontal {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+}
+
+div.vertical {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+
+input {
+	border-width: 0px 0px 1px;
+	margin: 16px 0px;
+	text-align: left;
+	background-color: snow;
+ font-size: calc(.75*(2vw + 19.2px));
+ font-weight: 100;
+}
+
+::-webkit-input-placeholder {
+   text-align: left;
+}
+
+::-moz-placeholder {
+   text-align: left;
+}
+
+:-ms-input-placeholder {
+   text-align: left;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+
+button {
+	background-color: snow;
+	 border: none;
+	 text-decoration: underline;
+	 padding-left: 1px;
+	 font-size: calc(.75*(2vw + 19.2px));
+	 font-weight: 100;
+}
+button:hover {
+	opacity: 85%;
+	cursor: pointer;
+}
+ul {
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 2vh;
+
+}
+
+ul li {
+  list-style:none;
+  flex: 0 0 49.333333%
+}
+
+li:last-child {
+  text-align: right;
+}
+</style>
+
+<body>
+
+	<div id="loginbox" class="lightbox" >
+		<div class="horizontal">
+			<div class="vertical">
+				<div class="box">
+					<input id="password" type="password" placeholder="password" /> <br />
+<ul>
+					<li> <button id="loginbutton" type="button">Enter</button> </li>
+					<li> <a style="text-align: right;" href="../index.html">
+					&#8617;
+				</a> </li>
+			</ul>
+					<p id="wrongPassword" style="display: none">wrong password</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+
+	 <script type="text/javascript" src="https://rawcdn.githack.com/chrisveness/crypto/7067ee62f18c76dd4a9d372a00e647205460b62b/sha1.js"></script>
+
+	<script type="text/javascript">
+	"use strict";
+
+
+	function loadPage(pwd) {
+
+		var hash= pwd;
+		hash= Sha1.hash(pwd);
+		var url= hash + "/index.html";
+
+		$.ajax({
+			url : url,
+			dataType : "html",
+			success : function(data) {
+
+				window.location= url;
+
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+
+
+				parent.location.hash= hash;
+
+				//$("#wrongPassword").show();
+				$("#password").attr("placeholder","wrong password");
+				$("#password").val("");
+			}
+		});
+	}
+
+
+	$("#loginbutton").on("click", function() {
+		loadPage($("#password").val());
+	});
+	$("#password").keypress(function(e) {
+		if (e.which == 13) {
+
+			loadPage($("#password").val());
+		}
+	});
+	$("#password").focus();
+
+	</script>
+
+</body>
+</html>
