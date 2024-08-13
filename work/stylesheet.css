@@ -31,8 +31,8 @@ body {
 }
 @media only screen and (max-width: 640px) {
   body {
-    margin: 2vh 2.5%;
-    font-size: 5vw;
+    margin: 2.5vh 2.5%;
+    font-size: 8vw;
   }
 }
 .header {
