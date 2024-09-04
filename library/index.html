@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="http://gmpg.org/xfn/11" rel="profile">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Books</title>
+<style>
+      @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,500|Asap:700|Nunito:700');
+      ::selection { background: #d1d6d4; }
+      ::placeholder { color: #a5c6b7;}
+      html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      *, *:after, *:before {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+	     input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      body {
+        margin: 5% calc(38.125% - 228px);
+        font-size: calc(1.25vw + 24px);
+        text-align:left;
+        color: #a5c6b7;
+        background-color: #11283a;
+        opacity: 1;
+        font-family: 'Fira Mono', monospace;
+      }
+      @media only screen and (max-width: 640px) {
+	       body {
+           margin: 5% 2.5%;
+           font-size: 5vw;
+         }
+		ul {
+width: 99%;
+}
+       }
+.bookCard {
+  
+        text-align: left;
+        margin: 2px;
+        padding: .2em;
+        margin-bottom: .5em;
+	border-radius: .125em;
+    }
+.bookCard:hover{
+    background-color: #1a3e56;
+    }
+.title {
+      font-family: 'Asap', serif;
+      font-size: 55%
+    }
+.auth {
+      font-size: 45%;
+      margin-bottom: .2em;
+	     opacity: .9;
+    }
+.year {
+      font-size: 45%;
+      margin-bottom: .2em;
+	     opacity: .9;
+    }
+a:link, a:visited, a:hover, a:active {
+      color: #a5c6b7;
+	    text-decoration: none;
+    }
+#Search {
+      width: 100%;
+      border-style: hidden;
+      font-size: 50%;
+      padding: .5em 2em .5em 1em;
+      margin-bottom: 1em;
+      font-family:'Nunito',monospace;
+      background-color: #1a3e56;
+      border-radius: .25em;
+      outline: none;
+      color: #aebac4;
+    }
+ul {
+list-style-type: none;
+  
+padding: 0;
+list-style-position: inside;
+}
+button {
+        border: .2em solid #a5c6b7;
+        display: inline-block;
+        padding: .2em .4em;
+font-size: 40%;
+      font-weight: 500;
+background-color: inherit;
+      font-family:'Fira Mono',monospace;
+color: #a5c6b7;
+    }
+button:hover{
+    background-color: #1a3e56;
+  }
+
+ul li{
+    float: left;
+    width: 99%;
+height: auto;
+}
+.sortButtons {
+display: flex;
+justify-content: space-between;
+}
+ header {
+      font-family: 'Nunito', sans-serif;
+      font-size: 50%;
+      margin-bottom: 2em;
+      margin-top: -1em;
+	     text-align:center;
+    }
+    .headlnk {
+      padding: 0 1em;
+      text-decoration: none;
+    }
+
+</style>
+</head>
+<body>
+<header>
+<span><a class='headlnk' href="index.html">books</a> | <a class='headlnk' href="periodicals.html">magazines</a></span>
+</header>
+
+<input type="text" id="Search" onkeyup="searchFilter()" placeholder="Search..." title="Type in a name">
+<div class="sortButtons"> 
+ <button onclick="sortYearA()" type="button" id="ageSortButton">Sort Oldest First</button>
+  <button onclick="sortYearD()" type="button" id="ageSortButton2">Sort Newest First</button>
+  <button onclick="sortTitle()" type="button" id="nameSortButton">Sort by Title</button>
+  <button onclick="sortAuthor()" type="button" id="authSortButton">Sort by Author</button>
+</div>
+  <ul id="dataDisplay">
+      <!-- JSON data will be displayed here -->
+  </ul>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+var jsonData = {
+
+    "data": [
+  {
+    "title": "The Book of Beautiful Homes",
+    "author": "Andrew C. Borzner",
+    "year": 1932,
+    "link": "https://archive.org/details/TheBookOfBeautifulHomes/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Festpreis Hauser",
+    "author": "Anlage und Wirtschaft",
+    "year": 1909,
+    "link": "https://archive.org/details/FestpreisHuser/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "English homes",
+    "author": "Architects' Small Home Service Bureau",
+    "year": 1930,
+    "link": "https://archive.org/details/ArchitectsSmallHomeServiceBureauEnglishhomes0001/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Plans for suburban concrete dwellings",
+    "author": "Association of American Portland Cement Manufacturers",
+    "year": 1907,
+    "link": "https://archive.org/details/plansforsuburban00asso/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "One Hundred Country Houses",
+    "author": "Aymar Embury",
+    "year": 1909,
+    "link": "https://archive.org/details/onehundredcountr00embu/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Prize-winning designs",
+    "author": "Bird & Son",
+    "year": 1908,
+    "link": "https://archive.org/details/prizewinningdesi00bird/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "House plans: Bishopric for all time and clime",
+    "author": "Bishopric Manufacturing Co.",
+    "year": 1924,
+    "link": "https://archive.org/details/HousePlansBishopricForAllTimeAndClime/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Book of homes",
+    "author": "Building Age Publishing Co.",
+    "year": 1929,
+    "link": "https://archive.org/details/BuildingAgePubBookofHomesLCAndrew0001/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Beautiful bungalows",
+    "author": "Building Age Publishing Corporation",
+    "year": 1923,
+    "link": "https://archive.org/details/beautifulbungalo00buil/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "A house of brick of moderate cost",
+    "author": "Building Brick Association of America",
+    "year": 1910,
+    "link": "https://archive.org/details/houseofbrickofmo00buil/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "A house of brick for ten thousand dollars",
+    "author": "Building Brick Association of America",
+    "year": 1910,
+    "link": "https://archive.org/details/houseofbrickfort00buil/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Practical homes",
+    "author": "Carr & Johnson Co.",
+    "year": 1926,
+    "link": "https://archive.org/details/PracticalHomes1926/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Modern homes",
+    "author": "Century Architectural Co",
+    "year": 1898,
+    "link": "https://archive.org/details/modernhomescolle00cent/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Cottages anglais",
+    "author": "Charles Massin",
+    "year": 1920,
+    "link": "https://archive.org/details/cottagesanglais00mass/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Deutsche Holzhauser",
+    "author": "Christoph & Unmack",
+    "year": 1927,
+    "link": "https://archive.org/details/DeutscheHolzhuser.KatalogXxiii/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Wohnhauser aus Holz",
+    "author": "Christoph & Unmack",
+    "year": 1940,
+    "link": "https://archive.org/details/WohnhuserAusHolz/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "How to build, furnish and decorate",
+    "author": "Co-operative Building Plan Assoc.",
+    "year": 1900,
+    "link": "https://archive.org/details/HowToBuildFurnishAndDecorate...Co-operativeBuildingPlan/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "New home plans",
+    "author": "DeForest & Hotchkiss Company",
+    "year": 1933,
+    "link": "https://archive.org/details/NewHomePlans/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Rush's Dwellings.",
+    "author": "E. A. Rush & Co.",
+    "year": 1900,
+    "link": "https://archive.org/details/RushsDwellings/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Suburban & rural architecture",
+    "author": "Edward Lushington Blackburne",
+    "year": 1867,
+    "link": "https://archive.org/details/suburbanruralarc00blac_0/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Artistic dwellings",
+    "author": "Frank Phillip Allen",
+    "year": 1902,
+    "link": "https://archive.org/details/artisticdwelling00alle_1/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Art in architecture",
+    "author": "George Franklin Barber",
+    "year": 1902,
+    "link": "https://archive.org/details/artinarchitectur00barb/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Home Builders Catalog: Plans of All Types of Small Homes",
+    "author": "Home Builders Catalog Co.",
+    "year": 1928,
+    "link": "https://archive.org/details/HomeBuildersCatalogPlansOfAllTypesOfSmallHomes/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "The Book of a Thousand Homes, vol. 1",
+    "author": "Home Owners' Service Institute",
+    "year": 1923,
+    "link": "https://archive.org/details/HomeOwnersServiceInstituteThebookofathousandhomes0001/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "House and Garden's Book of Houses",
+    "author": "House and Garden",
+    "year": 1920,
+    "link": "https://archive.org/details/housegardensbook00wrig_0/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "The hy-tex house of moderate cost",
+    "author": "Hydraulic Press Brick Co.",
+    "year": 1914,
+    "link": "https://archive.org/details/HydraulicPressBrickCoThehytexhouseofmoderatecost0001/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Designs for houses built of Indiana limestone",
+    "author": "Indiana Limestone Quarrymen's Association",
+    "year": 1922,
+    "link": "https://archive.org/details/designsforhouses00indi/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Practical home",
+    "author": "Jens Pedersen",
+    "year": 1925,
+    "link": "https://archive.org/details/PracticalHome1925/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Examples of American domestic architecture",
+    "author": "John Calvin Stevens",
+    "year": 1889,
+    "link": "https://archive.org/details/gri_33125016354967/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Country cottages and week-end homes",
+    "author": "John Hudson Elder-Duncan",
+    "year": 1907,
+    "link": "https://archive.org/details/countrycottagesw00elde/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Journal houses",
+    "author": "Ladies' Home Journal",
+    "year": 1916,
+    "link": "https://archive.org/details/LadiesHomeJournal2/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Lake Shore Lumber & Coal House Plans",
+    "author": "Lake Shore Lumber & Coal Co.",
+    "year": 1925,
+    "link": "https://archive.org/details/LakeShoreLumberCoalhousePlans/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Minneapolis journal of architecture",
+    "author": "Lindstromand & Almars",
+    "year": 1912,
+    "link": "https://archive.org/details/LindstromandAlmarsMinneapolisjournalofarchitecture0001/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "A group of fifty New England colonial homes from the designs of Miles Standish Richmond",
+    "author": "Miles Standish Richmond",
+    "year": 1939,
+    "link": "https://archive.org/details/groupoffiftynewe00rich/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Sensible low cost houses",
+    "author": "National Architects' Union",
+    "year": 1889,
+    "link": "https://archive.org/details/NationalArchitectsUnionSensiblelowcosthouses0001/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "The Natco Tex-Tile House",
+    "author": "National Fireproofing Co.",
+    "year": 1917,
+    "link": "https://archive.org/details/NationalFireproofingCoThenatcotextilehouse0001/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "For home lovers",
+    "author": "National Lumber Manufacturers Association",
+    "year": 1929,
+    "link": "https://archive.org/details/ForHomeLovers/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Modern Homes",
+    "author": "National Plan Service, Inc",
+    "year": 1920,
+    "link": "https://archive.org/details/modernhomes00nati/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Palliser's American cottage homes",
+    "author": "Palliser & Co",
+    "year": 1878,
+    "link": "https://archive.org/details/pallisersamerica00pall/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "The Radford Ideal Homes",
+    "author": "Radford Architectural Company",
+    "year": 1903,
+    "link": "https://archive.org/details/radfordidealhome00radf/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Guaranteed building plans",
+    "author": "Radford Architectural Company",
+    "year": 1915,
+    "link": "https://archive.org/details/guaranteedbuild00radf/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Colorkeed home plans",
+    "author": "Radford Architectural Company",
+    "year": 1927,
+    "link": "https://archive.org/details/WmARadfordColorkeedhomeplans0001/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Colorkeed Homes",
+    "author": "Radford Architectural Company",
+    "year": 1927,
+    "link": "https://archive.org/details/WmARadfordColorkeedhomefiresidegarden0001/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Portfolio of fifty new small homes",
+    "author": "Rowland C. Hunter",
+    "year": 1930,
+    "link": "https://archive.org/details/PortfolioOfFiftyNewSmallHomesDesignedByR.c.Hunter/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Homes of Today",
+    "author": "Sears, Roebuck & Co.",
+    "year": 1932,
+    "link": "https://archive.org/details/HomesOfToday1932/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "The 2nd Annual White Pine Architectural Competition",
+    "author": "The White Pine Series",
+    "year": 1917,
+    "link": "https://archive.org/details/whitepinehouse00whitrich/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Touchstone houses",
+    "author": "Touchstone Magazine",
+    "year": 1919,
+    "link": "https://archive.org/details/touchstonehouses00touc/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Seventy-two designs for fireproof homes",
+    "author": "United States Gypsum Co",
+    "year": 1925,
+    "link": "https://archive.org/details/seventytwodesign00unit//page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Maisons de Campagne des Environs de Paris",
+    "author": "Victor Petit",
+    "year": 1850,
+    "link": "https://archive.org/details/maisonsdecampagn00peti/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Beautiful homes",
+    "author": "Walter G Truettner",
+    "year": 1921,
+    "link": "https://archive.org/details/beautifulhomespu00true/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "The British Home of Today",
+    "author": "Walter Shaw Sparrow",
+    "year": 1904,
+    "link": "https://archive.org/details/britishhometoday00spar/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Lambert's suburban architecture",
+    "author": "William A. Lambert",
+    "year": 1894,
+    "link": "https://archive.org/details/WmALambertLambertssuburbanarchitecture0001/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Modern Architectural Designs and Details",
+    "author": "William T. Comstock",
+    "year": 1881,
+    "link": "https://archive.org/details/gri_33125007838127/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Recent English domestic architecture",
+    "author": "Mervyn Edmund Macartney",
+    "year": 1908,
+    "link": "https://archive.org/details/recentenglishdom04maca/page/n1/mode/thumb?view=theater"
+  },
+  {
+    "title": "Beautiful homes of moderate cost",
+    "author": "Building Age Publishing Co.",
+    "year": 1925,
+    "link": "https://archive.org/details/beautifulhomesof00buil_0/page/n1/mode/thumb?view=theater"
+  }
+]
+
+}
+
+function sortYearA() {
+  clearData('dataDisplay');
+
+  jsonData.data.sort(function (a, b) {
+    return a.year < b.year ? -1 : 1;
+  });
+  jsonData.data.forEach(createData);
+searchFilter();
+};
+
+function sortYearD() {
+  clearData('dataDisplay');
+
+  jsonData.data.sort(function (a, b) {
+    return a.year < b.year ? 1 : -1;
+  });
+  jsonData.data.forEach(createData);
+searchFilter();
+};
+
+function sortTitle() {
+  clearData('dataDisplay');
+  jsonData.data.sort(function (a, b) {
+    return a.title < b.title ? -1 : 1;
+  });
+  jsonData.data.forEach(createData);
+searchFilter();
+};
+
+function sortAuthor() {
+  clearData('dataDisplay');
+  jsonData.data.sort(function (a, b) {
+    return a.author < b.author ? -1 : 1;
+  });
+  jsonData.data.forEach(createData);
+searchFilter();
+};
+
+jsonData.data.sort(function (a, b) {
+    return a.author < b.author ? -1 : 1;
+  });
+jsonData.data.forEach(createData);
+
+
+function createData(item,index){
+  const dataDisplay = document.getElementById("dataDisplay");
+  const cardList = document.createElement("li");
+  cardList.classList = 'bookCard';
+  const cardLink = document.createElement("a");
+  cardLink.href = item.link;
+  cardLink.target = "blank";
+  const cardTitle = document.createElement("div");
+  cardTitle.textContent = item.title;
+  cardTitle.classList = 'title';
+  const cardYear = document.createElement("div");
+  cardYear.classList = 'year';
+  cardYear.textContent = item.year;
+  const cardAuthor = document.createElement("div");
+  cardAuthor.textContent = item.author;
+  cardAuthor.classList = 'auth';
+
+  dataDisplay.appendChild(cardList);
+  cardList.appendChild(cardLink);
+  cardLink.appendChild(cardTitle);
+  cardLink.appendChild(cardYear);
+  cardLink.appendChild(cardAuthor);
+}
+
+function clearData(elementID) {
+  document.getElementById(elementID).innerHTML = "";
+};
+
+function searchFilter() {
+      var input = document.getElementById("Search");
+      var filter = input.value.toLowerCase();
+      var nodes = document.getElementsByClassName('bookCard');
+
+      for (i = 0; i < nodes.length; i++) {
+        if (nodes[i].innerText.toLowerCase().includes(filter)) {
+          nodes[i].style.display = "block";
+        } else {
+          nodes[i].style.display = "none";
+        }
+      }
+    }
+
+</script>
+
+</html>
