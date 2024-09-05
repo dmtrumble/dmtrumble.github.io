@@ -1,152 +1,147 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="http://gmpg.org/xfn/11" rel="profile">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Books</title>
-<style>
-      @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,500|Asap:700|Nunito:700');
-      ::selection { background: #d1d6d4; }
-      ::placeholder { color: #a5c6b7;}
-      html {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      *, *:after, *:before {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-      }
-	     input {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-      }
-      body {
-        margin: 5% calc(38.125% - 228px);
-        font-size: calc(1.25vw + 24px);
-        text-align:left;
-        color: #a5c6b7;
-        background-color: #11283a;
-        opacity: 1;
-        font-family: 'Fira Mono', monospace;
-      }
-      @media only screen and (max-width: 640px) {
-	       body {
-           margin: 5% 2.5%;
-           font-size: 5vw;
-         }
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Books</title>
+	<style>
+     		 @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,500|Asap:700|Nunito:700');
+      		::selection { background: #d1d6d4; }
+      		::placeholder { color: #a5c6b7;}
+      		html {
+		        -webkit-font-smoothing: antialiased;
+		        -moz-osx-font-smoothing: grayscale;
+		      }
+	      	*, *:after, *:before {
+		        -webkit-box-sizing: border-box;
+		        -moz-box-sizing: border-box;
+		        box-sizing: border-box;
+		      }
+	     	input {
+		        -webkit-appearance: none;
+		        -moz-appearance: none;
+		        appearance: none;
+		      }
+	      	body {
+			margin: 5% calc(38.125% - 228px);
+		        font-size: calc(1.25vw + 24px);
+        		text-align:left;
+        		color: #a5c6b7;
+        		background-color: #11283a;
+        		opacity: 1;
+        		font-family: 'Fira Mono', monospace;
+			}
+      		@media only screen and (max-width: 640px) {
+	      		 body {
+          			margin: 5% 2.5%;
+           			font-size: 5vw;
+         			}
+			ul {
+				width: 99%;
+				}
+      			 }
+		.bookCard {
+		        text-align: left;
+		        margin: 2px;
+		        padding: .2em;
+		        margin-bottom: .5em;
+			border-radius: .125em;
+		    }
+		.bookCard:hover{
+		    background-color: #1a3e56;
+		    }
+		.title {
+		      font-family: 'Asap', serif;
+		      font-size: 55%
+		    }
+		.auth {
+		      font-size: 45%;
+		      margin-bottom: .2em;
+			     opacity: .9;
+		    }
+		.year {
+		      font-size: 45%;
+		      margin-bottom: .2em;
+			     opacity: .9;
+		    }
+		a:link, a:visited, a:hover, a:active {
+		      color: #a5c6b7;
+			text-decoration: none;
+		    }
+		#Search {
+		      width: 100%;
+		      border-style: hidden;
+		      font-size: 50%;
+		      padding: .5em 2em .5em 1em;
+		      margin-bottom: 1em;
+		      font-family:'Nunito',monospace;
+		      background-color: #1a3e56;
+		      border-radius: .25em;
+		      outline: none;
+		      color: #aebac4;
+		    }
 		ul {
-width: 99%;
-}
-       }
-.bookCard {
-  
-        text-align: left;
-        margin: 2px;
-        padding: .2em;
-        margin-bottom: .5em;
-	border-radius: .125em;
-    }
-.bookCard:hover{
-    background-color: #1a3e56;
-    }
-.title {
-      font-family: 'Asap', serif;
-      font-size: 55%
-    }
-.auth {
-      font-size: 45%;
-      margin-bottom: .2em;
-	     opacity: .9;
-    }
-.year {
-      font-size: 45%;
-      margin-bottom: .2em;
-	     opacity: .9;
-    }
-a:link, a:visited, a:hover, a:active {
-      color: #a5c6b7;
-	    text-decoration: none;
-    }
-#Search {
-      width: 100%;
-      border-style: hidden;
-      font-size: 50%;
-      padding: .5em 2em .5em 1em;
-      margin-bottom: 1em;
-      font-family:'Nunito',monospace;
-      background-color: #1a3e56;
-      border-radius: .25em;
-      outline: none;
-      color: #aebac4;
-    }
-ul {
-list-style-type: none;
-  
-padding: 0;
-list-style-position: inside;
-}
-button {
-        border: .2em solid #a5c6b7;
-        display: inline-block;
-        padding: .2em .4em;
-font-size: 40%;
-      font-weight: 500;
-background-color: inherit;
-      font-family:'Fira Mono',monospace;
-color: #a5c6b7;
-    }
-button:hover{
-    background-color: #1a3e56;
-  }
+			list-style-type: none;
+			padding: 0;
+			list-style-position: inside;
+		}
+		button {
+		        border: .2em solid #a5c6b7;
+		        display: inline-block;
+		        padding: .2em .4em;
+			font-size: 40%;
+		      	font-weight: 500;
+			background-color: inherit;
+		     	font-family:'Fira Mono',monospace;
+			color: #a5c6b7;
+		    }
+		button:hover{
+		    background-color: #1a3e56;
+		  }
+		ul li{
+		    	float: left;
+		    	width: 99%;
+			height: auto;
+		}
+		.sortButtons {
+			display: flex;
+			justify-content: space-between;
+		}
+		 header {
+		      font-family: 'Nunito', sans-serif;
+		      font-size: 50%;
+		      margin-bottom: 2em;
+		      margin-top: -1em;
+			text-align:center;
+		    }
+		    .headlnk {
+		      padding: 0 1em;
+		      text-decoration: none;
+		    }
 
-ul li{
-    float: left;
-    width: 99%;
-height: auto;
-}
-.sortButtons {
-display: flex;
-justify-content: space-between;
-}
- header {
-      font-family: 'Nunito', sans-serif;
-      font-size: 50%;
-      margin-bottom: 2em;
-      margin-top: -1em;
-	     text-align:center;
-    }
-    .headlnk {
-      padding: 0 1em;
-      text-decoration: none;
-    }
-
-</style>
+	</style>
 </head>
 <body>
-<header>
-<span><a class='headlnk' href="index.html">books</a> | <a class='headlnk' href="periodicals.html">magazines</a></span>
-</header>
+	<header>
+		<span><a class='headlnk' href="index.html">books</a> | <a class='headlnk' href="periodicals.html">magazines</a></span>
+	</header>
 
-<input type="text" id="Search" onkeyup="searchFilter()" placeholder="Search..." title="Type in a name">
-<div class="sortButtons"> 
- <button onclick="sortYearA()" type="button" id="ageSortButton">Sort Oldest First</button>
-  <button onclick="sortYearD()" type="button" id="ageSortButton2">Sort Newest First</button>
-  <button onclick="sortTitle()" type="button" id="nameSortButton">Sort by Title</button>
-  <button onclick="sortAuthor()" type="button" id="authSortButton">Sort by Author</button>
-</div>
-  <ul id="dataDisplay">
-      <!-- JSON data will be displayed here -->
-  </ul>
+	<input type="text" id="Search" onkeyup="searchFilter()" placeholder="Search..." title="Type in a name">
+	<div class="sortButtons"> 
+		 <button onclick="sortYearA()" type="button" id="ageSortButton">Sort Oldest First</button>
+		  <button onclick="sortYearD()" type="button" id="ageSortButton2">Sort Newest First</button>
+		  <button onclick="sortTitle()" type="button" id="nameSortButton">Sort by Title</button>
+		  <button onclick="sortAuthor()" type="button" id="authSortButton">Sort by Author</button>
+	</div>
+	  <ul id="dataDisplay">
+	      <!-- JSON data will be displayed here -->
+	  </ul>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-
 var jsonData = {
-
     "data": [
   {
     "title": "The Book of Beautiful Homes",
@@ -546,8 +541,9 @@ function createData(item,index){
   dataDisplay.appendChild(cardList);
   cardList.appendChild(cardLink);
   cardLink.appendChild(cardTitle);
-  cardLink.appendChild(cardYear);
   cardLink.appendChild(cardAuthor);
+  cardLink.appendChild(cardYear);
+  
 }
 
 function clearData(elementID) {
